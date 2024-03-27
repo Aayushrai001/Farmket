@@ -180,7 +180,7 @@
   </div>
 </div>
 
-     <last child>
+     <!--last child-->
      <div class="bg-info p-3 text-center">
      <p>All rights reserve @- Designed by Farmket-2024</p>
     </div>
