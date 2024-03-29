@@ -20,6 +20,10 @@
             width:225px;
         }
     </style>
+    <!--font link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Navbar -->
@@ -51,9 +55,9 @@
                 <div class="button text-center">
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">Insert Products</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Products</a></button>
-                    <button class="my-3"><a href="" class="nav-link  bg-info my-1">Insert Categories</a></button>
+                    <button class="my-3"><a href="index.php?insert_category" class="nav-link  bg-info my-1">Insert Categories</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Categories</a></button>
-                    <button class="my-3"><a href="" class="nav-link  bg-info my-1">Insert Brands</a></button>
+                    <button class="my-3"><a href="index.php?insert_brands" class="nav-link  bg-info my-1">Insert Brands</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Brands</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">All Orders</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">All Payments</a></button>
@@ -61,6 +65,17 @@
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">LogOut</a></button>
                 </div>
             </div>
+        </div>
+        <!--fourth child-->
+        <div class="container my-5">
+            <?php
+            if(isset($_GET['insert_category'])){
+                include('Insert_categories.php');
+            }
+            if(isset($_GET['insert_brands'])){
+                include('Insert_brand.php');
+            }
+            ?>
         </div>
         <!--last child-->
      <div class="bg-info p-3 text-center footer">
