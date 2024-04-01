@@ -1,3 +1,8 @@
+<!-- connect file-->
+<?php
+include('inludes/connect.php');
+include('functions/common_function.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,73 +77,9 @@
   <div class="col-md-10">
     <!--product-->
     <div class="row">
-      <div class="col-md-4 mb-2">
-      <div class="card">
-  <img src="./image/bitterguard.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">view more</a>
-  </div>
-</div>
-      </div>
-      <div class="col-md-4 mb-2">
-      <div class="card">
-  <img src="./image/tomato.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">view more</a>
-  </div>
-</div>
-      </div>
-      <div class="col-md-4 mb-2">
-      <div class="card">
-  <img src="./image/onion.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">view more</a>
-  </div>
-</div>
-      </div>
-     
-      <div class="col-md-4 mb-2">
-      <div class="card">
-  <img src="./image/garlic.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">view more</a>
-  </div>
-</div>
-      </div>
-      <div class="col-md-4 mb-2">
-      <div class="card">
-  <img src="./image/potato.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">view more</a>
-  </div>
-</div>
-      </div>
-      <div class="col-md-4 mb-2">
-      <div class="card">
-  <img src="./image/green-chilly.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-info">Add to Cart</a>
-    <a href="#" class="btn btn-secondary">view more</a>
-  </div>
-</div>
-      </div>
+      <?php
+      getproducts();
+      ?>
     </div>
   </div>
   <div class="col-md-2 bg-secondary p-0">
@@ -147,35 +88,28 @@
       <li class="nav-item bg-info">
         <a href="#" class="nav-link text-light"><h4>Delivery</h4></a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light">Brand1</a>
-      </li>
-      <li class="nav-item" >
-        <a href="#" class="nav-link text-light">Brand2</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light">Brand3</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light">Brand4</a>
-      </li>
+      <?php
+      getbrand();
+      ?>
     </ul>
     <ul class="navbar-nav me-auto text-center">
       <li class="nav-item bg-info">
         <a href="#" class="nav-link text-light"><h4>Categories</h4></a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light">Categories1</a>
-      </li>
-      <li class="nav-item" >
-        <a href="#" class="nav-link text-light">Categories2</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light">Categories3</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link text-light">Categories4</a>
-      </li>
+      <?php
+      $select_category="Select * from `categories`";
+      $result_category=mysqli_query($con, $select_category);
+      //$row_data=mysqli_fetch_assoc($result_brand);
+      //echo $row_data['brand_title'];
+      //echo $row_data['brand_title'];
+      while($row_category=mysqli_fetch_assoc($result_category)){
+        $category_title=$row_category['category_title'];
+        $category_id=$row_category['category_id']; 
+        echo"<li class='nav-item'>
+        <a href='index.php?categories=$category_id' class='nav-link text-light'>$category_title</a>
+        </li>";
+      }
+      ?>
     </ul>
   </div>
 </div>

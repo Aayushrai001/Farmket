@@ -6,6 +6,7 @@
     <title>Admin Dashboard</title>
     <!-- Bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--css link-->
     <link rel="stylesheet" href="../index.css">
     <style>
         .admin {
@@ -53,7 +54,7 @@
                     <p class="text-light text-center">Admin Name</p>
                 </div>
                 <div class="button text-center">
-                    <button class="my-3"><a href="" class="nav-link  bg-info my-1">Insert Products</a></button>
+                    <button class="my-3"><a href="insert_product.php" class="nav-link  bg-info my-1">Insert Products</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Products</a></button>
                     <button class="my-3"><a href="index.php?insert_category" class="nav-link  bg-info my-1">Insert Categories</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Categories</a></button>
