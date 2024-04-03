@@ -15,7 +15,7 @@ include('functions/common_function.php');
     <!--font link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -49,9 +49,10 @@ include('functions/common_function.php');
           <a class="nav-link" href="#">Total Price:100</a>
         </li>
       </ul>
-      <form class="d-flex" action="search_product.php" method="get">
+      <form class="d-flex" action="" method="get">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
+      </form>
     </div>
   </div>
 </nav>
@@ -77,12 +78,14 @@ include('functions/common_function.php');
     <!--product-->
     <div class="row">
       <?php
+      search_product();
       getproduct();
-      getuniquecategories() ;
+      getuniquecategories();
       ?>
     </div>
   </div>
   <div class="col-md-2 bg-secondary p-0">
+    <!--sidenav-->
     <ul class="navbar-nav me-auto text-center">
       <li class="nav-item bg-info">
         <a href="#" class="nav-link text-light"><h4>Categories</h4></a>

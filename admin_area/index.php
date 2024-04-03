@@ -58,8 +58,6 @@
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Products</a></button>
                     <button class="my-3"><a href="index.php?insert_category" class="nav-link  bg-info my-1">Insert Categories</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Categories</a></button>
-                    <button class="my-3"><a href="index.php?insert_brands" class="nav-link  bg-info my-1">Insert Brands</a></button>
-                    <button class="my-3"><a href="" class="nav-link  bg-info my-1">View Brands</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">All Orders</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">All Payments</a></button>
                     <button class="my-3"><a href="" class="nav-link  bg-info my-1">List User</a></button>
@@ -67,20 +65,17 @@
                 </div>
             </div>
         </div>
-        <!--fourth child-->
-        <div class="container my-5">
-            <?php
-            if(isset($_GET['insert_category'])){
-                include('Insert_categories.php');
-            }
-            if(isset($_GET['insert_brands'])){
-                include('Insert_brand.php');
-            }
-            ?>
-        </div>
-        <!--last child-->
-     <div class="bg-info p-3 text-center footer">
-     <p>All rights reserve @- Designed by Farmket-2024</p>
+        <!-- Fourth child -->
+    <div class="container my-5">
+        <?php
+        if(isset($_GET['insert_category'])){
+            include('Insert_categories.php');
+        }
+        ?>
+    </div>
+    <!-- Last child -->
+    <div class="bg-info p-3 text-center footer">
+        <p>All rights reserved @- Designed by Farmket-2024</p>
     </div>
     </div>   
     

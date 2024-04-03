@@ -5,7 +5,6 @@ if (isset($_POST['insert_product'])) {
     $description = $_POST['Description'];
     $product_keywords = $_POST['Keywords'];
     $product_category = $_POST['Product_Categories'];
-    $product_brand = $_POST['Product_Brand'];
     $product_price = $_POST['Product_Price'];
 
     // Accessing images
@@ -17,7 +16,7 @@ if (isset($_POST['insert_product'])) {
     $temp_product_image2 = $_FILES['Product_Image2']['tmp_name'];
 
     // Checking empty condition
-    if (empty($product_title) || empty($description) || empty($product_keywords) || empty($product_category) || empty($product_brand) || empty($product_price) || empty($product_image1) || empty($product_image2)) {
+    if (empty($product_title) || empty($description) || empty($product_keywords) || empty($product_category) || empty($product_price) || empty($product_image1) || empty($product_image2)) {
         echo "<script>alert('Please fill all the available fields')</script>";
         exit();
     } else {
@@ -25,8 +24,8 @@ if (isset($_POST['insert_product'])) {
         move_uploaded_file($temp_product_image2, "./product_image/$product_image2");
 
         //insert query
-        $insert_product = "INSERT INTO `products` (product_title, description, product_keywords, category_id, brand_id, product_image1, product_image2, price) 
-                           VALUES ('$product_title', '$description', '$product_keywords', '$product_category', '$product_brand', '$product_image1', '$product_image2', '$product_price')";
+        $insert_product = "INSERT INTO `products` (product_title, description, product_keywords, category_id, product_image1, product_image2, price) 
+                           VALUES ('$product_title', '$description', '$product_keywords', '$product_category',  '$product_image1', '$product_image2', '$product_price')";
         $result_query = mysqli_query($con, $insert_product);
         if ($result_query) {
             echo "<script>alert('Successfully insert the product')</script>";
@@ -83,21 +82,6 @@ if (isset($_POST['insert_product'])) {
                 $category_title = $row['category_title'];
                 $category_id = $row['category_id'];
                 echo "<option value='$category_id'>$category_title</option>";
-            }
-            ?>
-        </select>
-    </div>
-    <!--Brand-->
-    <div class="form-outline mb-4 w-50 m-auto">
-        <select name="Product_Brand" id="Product_Brand" class="form-select">
-            <option value="">Select a brand</option>
-            <?php
-            $select_query = "SELECT * FROM brand"; 
-            $result_query = mysqli_query($con, $select_query);
-            while ($row = mysqli_fetch_assoc($result_query)) {
-                $brand_title = $row['brand_title'];
-                $brand_id = $row['brand_id'];
-                echo "<option value='$brand_id'>$brand_title</option>";
             }
             ?>
         </select>
