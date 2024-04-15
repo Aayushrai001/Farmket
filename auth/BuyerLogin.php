@@ -284,45 +284,32 @@ session_start();
             </div>
         </div>
     </main>
+
 </body>
+
 </html>
 
 <?php
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-
 include("../Includes/db.php");
 
 if (isset($_POST['login'])) {
+
     $phonenumber = mysqli_real_escape_string($con, $_POST['phonenumber']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $ciphering = "AES-128-CTR";
-    $iv_length = openssl_cipher_iv_length($ciphering);
-    $options = 0;
-    $encryption_iv = '2345678910111211';
-    $encryption_key = "DE";
-
-    $encryption = openssl_encrypt(
-        $password,
-        $ciphering,
-        $encryption_key,
-        $options,
-        $encryption_iv
-    );
-
-    $query = "SELECT * FROM buyerregistration WHERE buyer_phone = '$phonenumber' AND buyer_password = '$encryption'";
+    $query = "select * from buyerregistration where buyer_phone = '$phonenumber' and buyer_password = '$password'";
     $run_query = mysqli_query($con, $query);
     $count_rows = mysqli_num_rows($run_query);
-    
-    if ($count_rows > 0) {
-        $_SESSION['phonenumber'] = $phonenumber;
-        echo "<script>alert('Successfully Login');</script>";
-        echo "<script>window.open('../BuyerPortal/index.php','_self')</script>";
-    } else {
-        echo "<script>alert('Invalid Phone Number or Password');</script>";
+    if ($count_rows == 0) {
+        echo "<script>alert('Please Enter Valid Details');</script>";
+        echo "<script>window.open('BuyerLogin.php','_self')</script>";
     }
-}
-?>
+    while ($row = mysqli_fetch_array($run_query)) {
+        $id = $row['buyer_id'];
+    }
 
+    $_SESSION['phonenumber'] = $phonenumber;
+    echo "<script>window.open('../BuyerPortal2/bhome.php','_self')</script>";
+}
+
+?>

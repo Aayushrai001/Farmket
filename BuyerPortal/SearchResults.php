@@ -22,6 +22,54 @@
      <script src="../portal_files/jquery.min.js.download"></script>
      <script src="../portal_files/popper.min.js.download"></script>
      <script src="../portal_files/bootstrap.min.js.download"></script>
+     <script>
+        function state() {
+            var a = document.getElementById('states').value;
+            if (a === 'Province-1') {
+                array = ['Bhojpur', 'Dhankuta', 'Ilam', 'Jhapa', 'Khotang', 'Morang', 'Okhaldhunga', 'Panchthar', 'Sankhuwasabha', 'Solukhumbu', 'Sunsari', 'Taplejung', 'Terhathum', 'Udayapur'];
+            } else if (a === 'Province-2') {
+                array = ['Bara', 'Dhanusha', 'Mahottari', 'Parsa', 'Rautahat', 'Sarlahi', 'Saptari', 'Siraha'];
+            } else if (a === 'Province-3') {
+                array = ['Bhaktapur', 'Chitwan', 'Dhading', 'Dolakha', 'Kathmandu', 'Kavrepalanchok', 'Lalitpur', 'Makwanpur', 'Nuwakot', 'Ramechhap', 'Rasuwa', 'Sindhuli', 'Sindhupalchok'];
+            } else if (a === 'Province-4') {
+                array = ['Baglung', 'Gorkha', 'Kaski', 'Lamjung', 'Manang', 'Mustang', 'Myagdi', 'Nawalpur', 'Parbat', 'Syangja', 'Tanahun'];
+            } else if (a === 'Province-5') {
+                array = ['Arghakhanchi', 'Baglung', 'Bardiya', 'Gulmi', 'Kapilvastu', 'Nawalparasi East', 'Palpa', 'Parasi', 'Pyuthan', 'Rolpa', 'Rukum West'];
+            } else if (a === 'Province-6') {
+                array = ['Dailekh', 'Dolpa', 'Humla', 'Jajarkot', 'Jumla', 'Kalikot', 'Mugu', 'Salyan', 'Surkhet', 'Western Rukum'];
+            } else if (a === 'Province-7') {
+                array = ['Achham', 'Baitadi', 'Bajhang', 'Bajura', 'Dadeldhura', 'Darchula', 'Doti', 'Kailali', 'Kanchanpur'];
+            }
+
+           
+            var string = "";
+            for (let i = 0; i < array.length; i++) {
+                string = string + "<option>" + array[i] + "</option>";
+
+            }
+            string = "<select nmae = 'lol'>" + string + "</select>"
+            document.getElementById('district').innerHTML = string;
+        }
+    </script>
+     <script>
+          var a;
+
+          function display() {
+               if (a == 0) {
+                    document.getElementById("majic").style.visibility = "hidden";
+                    document.getElementById("show").style.visibility = "visible";
+                    return a = 1;
+               } else {
+                    document.getElementById("majic").style.visibility = "visible";
+                    document.getElementById("show").style.visibility = "hidden";
+                    // document.getElementById("show").style. visibility= "hidden";
+
+                    return a = 0;
+               }
+
+          }
+     </script>
+
      <style>
           * {
                margin: 0;
@@ -560,57 +608,6 @@
 </head>
 
 <body>
-<div class="header">
-		<a href="BuyerHomepage.php"><img id="logo" src="../Images/Website/logo (3).jpg"></a>
-		<div class="search_input">
-			<form action="SearchResults.php" method="get" enctype="multipart/form-data">
-				<i class="fas fa-search" style="font-size:20px;color:white;"></i>
-				<input type="text" id="input1" name="search" placeholder="Search...">
-				<a class="bar" href="index.php">Home</a>
-				<a class="bar" href="#product">Product</a>
-				<a class="bar" href="aboutus.php">About Us</a>
-			</form>
-		</div>
-		<div class="dropdown">
-			<button class="btn btn-default dropdown-toggle" type="button" id="menu1" class="dric" data-toggle="dropdown" style="margin-top:-5px;"> </span></button>
-			<ul class="dropdown-menu etc">
-				<?php
-				if (isset($_SESSION['phonenumber'])) {
-					//used to go to user profile page
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'BuyerProfile.php'><label class='makeitgreen'>Profile</label></a></li>";
-					//
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= '#'><label class='makeitgreen'>Save For Later</label></a></li>";
-                    //used to redirect to buypage
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'BuyerTransactions.php'><label class='makeitgreen'>Transactions</label></a></li>";
-                    // used to got to buyer page
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'BuyerProfile.php'><label class='makeitgreen'>Subscription</label></a></li>";
-
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'Farmers.php'><label class='makeitgreen'>Farmers</label></a></li>";
-					//used to go to log out page
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href='../Includes/logout.php'><label class='makeitgreen'>Logout</label></a></li>";
-				} else {
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= '../auth/BuyerLogin.php'><label class='makeitgreen'>Login</label></a></li>";
-				}
-				?>
-		</div>
-		<div class="proicon">
-			<?php
-			if (!isset($_SESSION['phonenumber'])) {
-				echo "<a href='../auth/BuyerLogin.php'> <i class='far fa-user-circle' style='font-size:30px; color: white'></i></a>";
-			} else {
-				echo "<a href='BuyerProfile.php'> <i class='far fa-user-circle' style='font-size:30px; color: white'></i></a>";
-			}
-			?>
-		</div>
-
-		<div class="icon2">
-			<a href="CartPage.php"> <i class="fa" style="font-size:30px; color:white ;">&#61562;</i></a>
-			<span id="icon"> <!--?php echo totalItems(); ?--> </span>
-		</div>
-
-		<div class="loginz">
-			<!--?php getUsername(); ?-->
-		</div>
 
      <div class="header">
 
@@ -666,6 +663,52 @@
           <div class="filter">
                <button class="filterbutton " onclick="display()">Filter
                     <i class="fas fa-filter"></i></button>
+          </div>
+     </div>
+     <div class="headerdown">
+          <div id="show">
+               <div class="sel1 sel">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">CROPS
+                         <span class="caret"></span></button>
+                    <ul class="dropdown-menu  ">
+                         <?php getCrops(); ?>
+                    </ul>
+               </div>
+               <div class="sel2 sel">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">VEGETABLES </i>
+                         <span class="caret"></span></button>
+                    <ul class="dropdown-menu ">
+                         <?php getVegetables(); ?>
+                    </ul>
+               </div>
+               <div class="sel3 sel">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">FRUITS </i>
+                         <span class="caret"></span></button>
+                    <ul class="dropdown-menu ">
+                         <?php getFruits(); ?>
+                    </ul>
+               </div>
+          </div>
+          <div id="majic" class="headerdown ">
+               <table>
+                    <select id="states" onchange="state()" tabindex="1">
+                    <option value="0">--Select State--</option>
+                                            <option value="Province-1">Province-1</option>
+                                            <option value="Province-2">Province-2</option>
+                                            <option value="Province-3">Province-3</option>
+                                            <option value="Province-4">Province-4</option>
+                                            <option value="Province-5">Province-6</option>
+                                            <option value="Province-6">Province-7</option>
+                                            <option value="Province-8">Province-8</option>
+                    </select>
+
+
+                    <select name="" id="district">
+                         <option>Select District</option>
+                    </select>
+
+
+               </table>
           </div>
      </div>
 

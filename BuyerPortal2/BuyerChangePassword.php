@@ -1,8 +1,9 @@
 <?php
+
 include("../Includes/db.php");
 session_start();
 $sessphonenumber = $_SESSION['phonenumber'];
-$sql = "SELECT * FROM buyerregistration WHERE buyer_phone = $sessphonenumber";
+$sql = "select * from buyerregistration where buyer_phone = $sessphonenumber";
 $run_query = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_array($run_query)) {
     $password = $row['buyer_password'];
@@ -21,7 +22,8 @@ while ($row = mysqli_fetch_array($run_query)) {
 </head>
 
 <style>
-     h1 {
+    h1 {
+        background-color: transparent;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         text-align: center;
     }
@@ -46,7 +48,6 @@ while ($row = mysqli_fetch_array($run_query)) {
         border-style: outset;
         border-radius: 16px;
         border-color: black;
-        
     }
 
     body {
@@ -68,23 +69,23 @@ while ($row = mysqli_fetch_array($run_query)) {
         display: inline-block;
     }
 
-     .submit{
+    input[type="submit"] {
         cursor: pointer;
         font-size: 22px;
         font-weight: bold;
         color: white;
-        background-color: #274C5B;
+        background-color: black;
         border-radius: 16px;
         border-color: black;
         width: 64%;
     }
 
     input[type="submit"]:hover {
-        background-color: #274C5B;
+        background-color: black;
         outline: none;
-        border-color: black
+        border-color: blanchedalmond;
         color: white;
-        border-radius: 20px;
+        border-radius: 20%;
         border-style: outset;
         border-color: black;
         font-weight: bolder;
@@ -103,15 +104,13 @@ while ($row = mysqli_fetch_array($run_query)) {
         font-size: 34px;
         background: transparent;
         border: 3px;
-        border-color: green;
+        border-color: black;
         border-style: solid;
         border-width: 2px;
 
 
     }
-
     .just {
-
         float: left;
         margin-left: 1%;
         margin: 20px;
@@ -124,22 +123,22 @@ while ($row = mysqli_fetch_array($run_query)) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
-<div class="just">
-        <a  href="index.php"> <i  class="fa fa-home fa-4x"></i></a>
+    <div class="just">
+        <a href="bhome.php"> <i class="fa fa-home fa-4x"></i></a>
     </div>
 
     <div class="box">
         <form action="" method="post">
             <table align="center">
                 <tr colspan=2>
-                    <h1>CHANGE PASSWORD</h1>
+                    <h1>CHANGE PASSWORD </h1>
                 </tr>
                 <tr align="center">
                     <td>
                         <label><b>Current Password :</b></label>
                     </td>
                     <td>
-                        <input type="password" name="currentpassword" placeholder="Current Password" required /> <br>
+                        <input type="password" name="currentpassword" placeholder="Current Password" /> <br>
                     </td>
                 </tr>
                 <tr align="center">
@@ -147,7 +146,7 @@ while ($row = mysqli_fetch_array($run_query)) {
                         <label><b>New Password :</b></label>
                     </td>
                     <td>
-                        <input type="password" name="newpassword" placeholder="New Password" required /> <br>
+                        <input type="password" name="newpassword" placeholder="New Password" /> <br>
                     </td>
                 </tr>
                 <tr align="center">
@@ -155,62 +154,48 @@ while ($row = mysqli_fetch_array($run_query)) {
                         <label><b>Re-enter Password :</b></label>
                     </td>
                     <td>
-                        <input type="password" name="confirmpassword" placeholder="Confirm New Password" required /> <br>
+                        <input type="password" name="confirmpassword" placeholder="Confirm New Password" /> <br>
                     </td>
                 </tr>
                 <tr>
                     <td colspan=2>
-                        <input class="submit" type="submit" name="confirm" value="Confirm" /> <br>
+                        <input type="submit" name="confirm" value="Confirm" /> <br>
                     </td>
                     <span style=" display:block;  margin-bottom: .75em; "></span>
                 </tr>
             </table>
         </form>
     </div>
+
     <?php
     if (isset($_POST['confirm'])) {
         $currentpassword = mysqli_real_escape_string($con, $_POST['currentpassword']);
         $newpassword = mysqli_real_escape_string($con, $_POST['newpassword']);
         $confirmpassword = mysqli_real_escape_string($con, $_POST['confirmpassword']);
 
-        $ciphering = "AES-128-CTR";
-        $iv_length = openssl_cipher_iv_length($ciphering);
-        $options = 0;
-        $encryption_iv = '2345678910111211';
-        $encryption_key = "DE";
-
-        $encryption1 = openssl_encrypt(
-            $currentpassword,
-            $ciphering,
-            $encryption_key,
-            $options,
-            $encryption_iv
-        );
-        $encryption2 = openssl_encrypt(
-            $newpassword,
-            $ciphering,
-            $encryption_key,
-            $options,
-            $encryption_iv
-        );
-
-        if (strcmp($password, $encryption1) == 0 && $newpassword === $confirmpassword) {
+        // Assuming $password is the current password from the database
+        if ($currentpassword == $password && $newpassword == $confirmpassword) {
+            // Update the password directly without encryption
             $query = "UPDATE buyerregistration 
-                      SET buyer_password = '$encryption2', buyer_conf_pswd = '$confirmpassword'
+                      SET buyer_password = '$newpassword' 
                       WHERE buyer_phone = $sessphonenumber";
             $run = mysqli_query($con, $query);
 
             if ($run) {
                 echo "<script>alert('Password Updated Successfully!');</script>";
-                echo "<script>window.open('BuyerProfile.php','_self')</script>";
+                echo "<script>window.open('BuyerChangePassword.php','_self')</script>";
             } else {
-                echo "<script>alert('Error updating password');</script>";
+                echo "<script>alert('Error updating password. Please try again.');</script>";
+                echo "<script>window.open('BuyerChangePassword.php','_self')</script>";
             }
         } else {
-            echo "<script>alert('Please enter valid details');</script>";
+            echo "<script>alert('Please enter valid details.');</script>";
+            echo "<script>window.open('BuyerChangePassword.php','_self')</script>";
         }
     }
-    ?>
+?>
+
+
 </body>
 
 </html>

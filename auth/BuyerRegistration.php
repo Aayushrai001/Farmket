@@ -222,7 +222,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-8">
 					<div class="card">
-					<div class="card-header" style="background-color:#292b2c"><h4 style="font-style:bold;color:goldenrod">Sign Up</h4></div>
+					<div class="card-header" style="background-color:#292b2c"><h4 style="font-style:bold;color:goldenrod">Register</h4></div>
 						<div class="card-body border border-dark">
 							<form name="my-form" action="BuyerRegistration.php" method="post">
 								<div class="form-group row">
@@ -251,7 +251,35 @@
 									<div class="col-md-6">
 										<textarea type="text" id="present_address" class="form-control border border-dark" rows="4" name="address" placeholder="Address" required></textarea>
 									</div>
-								</div>		
+								</div>
+
+								<div class="form-group row">
+									<label for="campany_name" class="col-md-4 col-form-label text-md-right"><i class="fas fa-building mr-2"></i><b>Company Name</b></label>
+									<div class="col-md-6">
+										<input type="text" id="campany_name" class="form-control border border-dark" name="company_name" placeholder="Company name" required>
+									</div>
+								</div>			
+
+								<div class="form-group row">
+									<label for="lisence" class="col-md-4 col-form-label text-md-right"><i class="fas fa-id-badge mr-2"></i><b>Lisence</b></label>
+									<div class="col-md-6">
+										<input type="text" id="lisence" class="form-control border border-dark" name="license" placeholder="license" required>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="account1" class="col-md-4 col-form-label text-md-right"><i class="fas fa-university mr-2"></i><b>Bank Account No.</b></label>
+									<div class="col-md-6">
+										<input type="text" id="account1" class="form-control border border-dark" name="account" placeholder="Bank Account number" required>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="account2" class="col-md-4 col-form-label text-md-right"><i class="fas fa-pencil-alt mr-2"></i><b>PAN No.</b></label>
+									<div class="col-md-6">
+										<input type="text" id="account2" class="form-control border border-dark" name="pan" placeholder="Pan number" required>
+									</div>
+								</div>
 
 								<div class="form-group row">
 									<label for="user_name" class="col-md-4 col-form-label text-md-right"><i class="fas fa-user mr-2"></i><b>User Name</b></label>
@@ -277,7 +305,7 @@
 
 								<div class="col-md-6 offset-md-4">
 									<button type="submit" class="btn btn-primary"  style="background-color:#292b2c;color:goldenrod" name="register" value="Register">
-										Sign Up
+										Register
 									</button>
 								</div>
 							</form>
@@ -287,14 +315,25 @@
 			</div>
 		</div>
 	</main>
+
 </body>
+
 </html>
+
+
 <?php
+
 include("../Includes/db.php");
+
 if (isset($_POST['register'])) {
+
 	$name = mysqli_real_escape_string($con, $_POST['name']);
 	$phonenumber = mysqli_real_escape_string($con, $_POST['phonenumber']);
 	$address = mysqli_real_escape_string($con, $_POST['address']);
+	$company_name = mysqli_real_escape_string($con, $_POST['company_name']);
+	$license = mysqli_real_escape_string($con, $_POST['license']);
+	$account = mysqli_real_escape_string($con, $_POST['account']);
+	$pan = mysqli_real_escape_string($con, $_POST['pan']);
 	$mail = mysqli_real_escape_string($con, $_POST['mail']);
 	$username = mysqli_real_escape_string($con, $_POST['username']);
 	$password = mysqli_real_escape_string($con, $_POST['password']);
@@ -313,18 +352,23 @@ if (isset($_POST['register'])) {
 		$options,
 		$encryption_iv
 	);
+
 	if (strcmp($password, $confirmpassword) == 0) {
-		$query = "INSERT INTO buyerregistration (buyer_name, buyer_phone, buyer_addr, buyer_mail, buyer_username, buyer_password, buyer_conf_pswd) 
-		VALUES ('$name', '$phonenumber', '$address', '$mail', '$username', '$encryption', '$confirmpassword')";
+
+		$query = "insert into buyerregistration (buyer_name,buyer_phone,buyer_addr,buyer_comp,
+		buyer_license,buyer_bank,buyer_pan,buyer_mail,buyer_username,buyer_password) 
+		values ('$name','$phonenumber','$address','$company_name','$license','$account','$pan',
+		'$mail','$username','$encryption')";
+
 		$run_register_query = mysqli_query($con, $query);
-		if ($run_register_query) {
-			echo "<script>alert('Successfully Inserted');</script>";
-			echo "<script>window.open('BuyerLogin.php','_self')</script>";
-		} else {
-			echo "<script>alert('Error inserting data');</script>";
-		}
-	} else {
-		echo "<script>alert('Password and Confirm Password should be the same');</script>";
+		echo "<script>alert('SucessFully Inserted');</script>";
+		echo "<script>window.open('BuyerLogin.php','_self')</script>";
+	} else if (strcmp($password, $confirmpassword) != 0) {
+		echo "<script>
+			alert('Password and Confirm Password Should be same');
+		</script>";
 	}
 }
+
+
 ?>

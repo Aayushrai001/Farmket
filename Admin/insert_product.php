@@ -1,9 +1,9 @@
+<!DOCTYPE html>
+
 <?php
-session_start();
-include("../Includes/db.php");
+include("includes/db.php");  // db connections
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,125 +11,178 @@ include("../Includes/db.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Script for Advance TextArea  -->
+    <!-- 
+    <script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+    <script type="application/x-javascript">
+    tinymce.init({selector:'textarea'});
+    </script> -->
+
     <title>Inserting Product</title>
-    <style>
-        body {
-            position: relative;
-            text-align: center;
-            background-size: 30px;
-            margin: 5px;
-            background-attachment: fixed;
-            background-size: cover;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        form {
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        input[type="text"],
-        select,
-        textarea {
-            width: 300px;
-            padding: 8px;
-            margin: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        input[type="file"] {
-            margin: 5px;
-        }
-
-        #insnow {
-            width: 150px;
-            height: 40px;
-            background-color: lawngreen;
-            border: none;
-            cursor: pointer;
-        }
-
-        #insnow:hover {
-            background-color: limegreen;
-        }
-
-        .btn {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            background-color: lightgreen;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="./Styles/insert_product.css"> -->
 </head>
 
+<style>
+    body {
+        background-image: url(../Images/Website/FarmerLogin.jpg);
+        position: relative;
+        text-align: center;
+        background-size: 30px;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: 'Times New Roman', Times, serif;
+        /* border-collapse: collapse; */
+    }
+
+
+    #insnow {
+        
+        width: 200px;
+        height: 40px;
+        background-color: lawngreen;
+    }
+
+    #tab {
+        font-size: 19px;
+        table-layout: fixed;
+    }
+</style>
+
 <body>
+
     <form action="insert_product.php" method="post" enctype="multipart/form-data">
-        <h2>Insert New Product Here</h2>
-        <label for="product_title">Product Title:</label>
-        <input type="text" name="product_title" id="product_title" required>
+        <br>
+        <table id="tab" align="center" width="600" border=3>
+            <tr id="ins" align="center">
+                <td colspan=4>
+                    <h2>Insert New Product Here</h2>
+                </td>
+            </tr>
 
-        <label for="product_cat">Product Categories:</label>
-        <select name="product_cat" id="product_cat" required>
-            <option value="">Select a Category</option>
-            <?php
-            $get_cats = "SELECT * FROM categories";
-            $run_cats =  mysqli_query($con, $get_cats);
 
-            while ($row_cats = mysqli_fetch_array($run_cats)) {
-                $cat_id = $row_cats['cat_id'];
-                $cat_title = $row_cats['cat_title'];
-                echo "<option value='$cat_id'>$cat_title</option>";
-            }
-            ?>
-        </select>
-        <label for="product_image">Product Image:</label>
-        <input type="file" name="product_image" id="product_image">
-        <label for="product_stock">Product Stock (In kg):</label>
-        <input type="text" name="product_stock" id="product_stock" required>
-        <label for="product_price">Product Price (Per kg):</label>
-        <input type="text" name="product_price" id="product_price" required>
-        <label for="product_desc">Product Description:</label>
-        <textarea name="product_desc" id="product_desc" cols="40" rows="8"></textarea>
-        <label for="product_keywords">Product Keywords:</label>
-        <input type="text" name="product_keywords" id="product_keywords" size="60">
-        <input type="submit" id="insnow" name="insert_post" value="Insert Product Now">
-        <button class="btn"><a href="admin_dashboard.php">Back</a></button>
+
+            <tr id="protitle">
+                <td align="center"><b>Product Title:</b></td>
+                <td colspan=2><input type="text" name="product_title" size="65" required></td>
+            </tr>
+
+            <tr id="procat">
+                <td align="center"><b>Product Categories:</b></td>
+                <td colspan=2>
+                    <select name="product_cat" required>
+                        <option>Select a Category</option>
+                        <?php
+                        $get_cats = "select * from categories";
+
+                        $run_cats =  mysqli_query($con, $get_cats);
+
+                        while ($row_cats = mysqli_fetch_array($run_cats)) {
+
+                            $cat_id = $row_cats['cat_id'];
+                            $cat_title = $row_cats['cat_title'];
+
+                            echo "<option value='$cat_id'>$cat_title</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+
+            <tr id="prostock">
+                <td align="center"><b>Product type : <br></b></td>
+                <td colspan=2><input type="text" name="product_type" required></td>
+            </tr>
+
+            <tr id="procalender">
+                <td align="center"><b>Product Expiry : <br></b></td>
+                <td colspan=2> <input type="date" name="bday"></td>
+            </tr>
+            <tr id="proimg">
+                <td align="center"><b>Product Image :</b></td>
+                <td colspan=2><input type="file" name="product_image"></td>
+            </tr>
+
+            <tr id="prostock">
+                <td align="center"><b>Product Stock : <br>(In kg)</b></td>
+                <td colspan=2><input type="text" name="product_stock" required></td>
+            </tr>
+
+            <tr id="propriceMax">
+                <td align="center"><b>Product MRP : <br>(Per kg)</b></td>
+                <td colspan=2><input type="text" name="product_price" required></td>
+            </tr>
+            <tr id="propriceMin">
+                <td align="center"><b>Product Base Price : <br>(Per kg)</b></td>
+                <td colspan=2><input type="text" name="product_price" required></td>
+            </tr>
+            <tr id="prodesc">
+
+                <td align="center"><b>Product Description:</b></td>
+                <td colspan=2><textarea name="product_desc" id="" cols="40" rows="8"></textarea></td>
+            </tr>
+
+            <tr id="prokey">
+                <td align="center"><b>Product Keywords:</b></td>
+                <td colspan=2><input type="text" name="product_keywords" size="60"></td>
+            </tr>
+
+            <tr id="dev">
+                <td align="center"><b>Delivery :</b></td>
+                <td id="yes"><input type="radio" name="product_delivery" value="yes">Yes</td>
+                <td id="no"><input type="radio" name="product_delivery" value="no">No</td>
+            </tr>
+
+            <tr align="center">
+                <td colspan=4><input type="submit" id="insnow" name="insert_post" value="Insert Product Now"></td>
+            </tr>
+        </table>
     </form>
+
 </body>
+
 </html>
+
 <?php
-if (isset($_POST['insert_post'])) {
+session_start();
+if (isset($_POST['insert_post'])) {    // when button is clicked
+
     // getting the text data from fields
     $product_title = $_POST['product_title'];
     $product_cat = $_POST['product_cat'];
+    $product_type = $_POST['product_type'];
     $product_stock = $_POST['product_stock'];
     $product_price = $_POST['product_price'];
-    // Escape special characters in product description
-    $product_desc = mysqli_real_escape_string($con, $_POST['product_desc']);
+    $product_desc = $_POST['product_desc'];
     $product_keywords = $_POST['product_keywords'];
+    $product_delivery = $_POST['product_delivery'];
 
     // getting image
     $product_image = $_FILES['product_image']['name'];
-    $product_image_tmp = $_FILES['product_image']['tmp_name'];
+    $product_image_tmp = $_FILES['product_image']['tmp_name'];  // for server
 
-    move_uploaded_file($product_image_tmp, "product_images/$product_image");
+    if (isset($_SESSION['phonenumber'])) {
+        move_uploaded_file($product_image_tmp, "product_images/$product_image");
 
-    // Inserting data into the products table
-    $insert_product = "INSERT INTO products (product_cat, product_title, product_stock, product_price, product_desc, product_image, product_keywords) 
-                        VALUES ('$product_cat', '$product_title', '$product_stock', '$product_price', '$product_desc', '$product_image', '$product_keywords')";
+        $phone = $_SESSION['phonenumber'];
+        $getting_id = "select * from farmerregistration where farmer_phone = $phone";
+        $run = mysqli_query($con, $getting_id);
+        $row = mysqli_fetch_array($run);
+        $id = $row['farmer_id'];
+        $insert_product = "insert into products (farmer_fk,product_cat,product_title,product_type,product_stock,product_price,
+                            product_desc,product_image,product_keywords,product_delivery) 
+                            values ('$id','$product_cat','$product_title','$product_type','$product_stock','$product_price'
+                                    ,'$product_desc','$product_image','$product_keywords','$product_delivery')";
 
-    $insert_pro = mysqli_query($con, $insert_product);
-    if ($insert_pro) {
-        echo "<script>alert('Product has been added')</script>";
-        echo "<script>window.open('insert_product.php','_self')</script>";
-    } else {
-        echo "<script>alert('Error Uploading Data Please Check your Connections')</script>";
+        $insert_pro = mysqli_query($con, $insert_product);
+
+        if ($insert_pro) {
+            echo "<script>alert('Product has been added')</script>";
+            echo "<script>window.open('insert_product.php','_self')</script>";
+        } else {
+            echo "<script>alert('Error Uploading Data Please Check your Connections ')</script>";
+        }
     }
 }
+
+
 ?>

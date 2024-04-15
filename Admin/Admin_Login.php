@@ -1,3 +1,4 @@
+<!-- vayu -->
 <?php
 include("../Includes/db.php");
 //session_start();
@@ -255,7 +256,7 @@ include("../Functions/functions.php");
 							<h4  style="font-style:bold;color:goldenrod;text-align:left">Login</h4>
 						</div>
 						<div class="card-body border border-dark">
-							<form name="my-form" action="FarmerLogin.php" method="post">
+							<form name="my-form" action="Admin_Login.php" method="post">
 
 								<div class="form-group row">
 									<label for="phone_number" class="col-md-4 col-form-label text-md-right"><i class="fas fa-phone-alt mr-2"></i><b>Phone Number</b></label>
@@ -277,11 +278,7 @@ include("../Functions/functions.php");
 									</button>
 								</div>
 								<br>
-								<div class="col-md-6 offset-md-4">
-									<label id="forgotPassword"  class="text-left"><a id='link' style="" href="FarmerForgotPassword.php"><b style="color:black ;text-align:left"> Forgot your password </b></a></label>
-									<br>
-									<label id="account" class="text-left"><a id='link' href="FarmerRegister.php"><b style="color:black"> Create New Account</b></a></label>
-								</div>
+								
 							</form>
 						</div>
 					</div>
@@ -300,20 +297,20 @@ if (isset($_POST['login'])) {
 	$phonenumber = mysqli_real_escape_string($con, $_POST['phonenumber']);
 	$password = mysqli_real_escape_string($con, $_POST['password']);
 
-	$query = "select * from farmerregistration where farmer_phone = '$phonenumber' and farmer_password = '$password'";
+	$query = "select * from adminregistration where admin_phone = '$phonenumber' and admin_password = '$password'";
 	echo $query;
 	$run_query = mysqli_query($con, $query);
 	$count_rows = mysqli_num_rows($run_query);
 	if ($count_rows == 0) {
 		echo "<script>alert('Please Enter Valid Details');</script>";
-		echo "<script>window.open('FarmerLogin.php','_self')</script>";
+		echo "<script>window.open('admin_Login.php','_self')</script>";
 	}
 	while ($row = mysqli_fetch_array($run_query)) {
-		$id = $row['farmer_id'];
+		$id = $row['admin_id'];
 	}
 
 	$_SESSION['phonenumber'] = $phonenumber;
-	echo "<script>window.open('../FarmerPortal/farmerHomepage.php','_self')</script>";
+	echo "<script>window.open('../Admin/admindash.php','_self')</script>";
 }
 
 ?>

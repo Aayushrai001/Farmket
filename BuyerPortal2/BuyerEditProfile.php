@@ -8,8 +8,12 @@
     while($row = mysqli_fetch_array($run_query))
     {
         $name = $row['buyer_name'];
+        $pan = $row['buyer_pan'];
         $phone = $row['buyer_phone'];
         $address = $row['buyer_addr'];
+        $account= $row['buyer_bank']; 
+        $comp = $row['buyer_comp'];
+        $license = $row['buyer_license'];
         $mail = $row['buyer_mail'];
         $user = $row['buyer_username'];
     }
@@ -30,17 +34,7 @@
             background-color: transparent;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             text-align: center;
-            cursor: pointer
         }
-        .just{
-            float:left;
-            margin-left:1%;
-            margin:20px;
-            position:absolute;
-            left:0;
-            top:0px; 
-            text-shadow: 1px 1px 1px black;
-        } 
         
         .box {
             color: black;
@@ -57,10 +51,9 @@
         
         }
         
-        body{
+        body {
             background-position: center;
             background-color: white;
-            border: chartreuse;
         }
         
         #innerbox {
@@ -72,63 +65,106 @@
         input {
             padding: 7px;
             margin: 10px;
-             border-color: black;
+             border-color:black;
             display: inline-block;
             border-radius: 16px;
         }
         
         input[type="submit"] {
             cursor: pointer;
-            font-size: 20px;
+            font-size: 12px;
             font-weight: bold;
             color: white;
-            background-color: #274C5B;
+            background-color: black;
             border-radius: 16px;
             border-color: black;
             width: 44%;
-            padding: 15px;
         }
         
         input[type="submit"]:hover {
-            background-color: #274C5B;
-                outline: none;
-                color:  rgb(255,255,255);
-                border-radius: 20px;
-                border-style: outset;
-                border-color: black;
-                font-weight: bolder;
-                width: 54%;
-                font-size: 18px;
+                background-color: black;
+            outline: none;
+            color: white;
+            border-radius: 20%;
+            border-style: outset;
+            border-color: black;
+            font-weight: bolder;
+            width: 54%;
+            font-size: 18px;
         }
         textarea{
-             border-width: 2px; 
+             border-width: 3px; 
              border-radius: 16px; 
              border-color:black;
+            
+            
         }
    
-        .say{
+            
+        .in-icons {
+           text-align: center;
+        }
+            
+        .in-icons i {
+            position: absolute;
+            left: 600px;
+            top: 175px;
+        }
+        .just{
+            float:left;
+            margin:0px;
+            position:absolute;
+            left:0;
+             top:0px; 
+        
+        }
+        .again{
             cursor: pointer;
-            font-size: 20px;
+            font-size: 24px; 
             font-weight: bold;
-            color: white;
-            background-color: #274C5B;
+            color: black;
             border-radius: 16px;
             border-color: black;
-            width: 55%;
-            padding: 15px;    
+            width: 44%;
+            margin-left:100px;
+
+
+        }
+        .say{
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            color:white;
+            border-color:black;
+            width: 96%;
+            padding : 10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: black;
+            border-radius: 16px;
+            border-color: black;    
         }
 
         .say:hover{
-            background-color: #274C5B;
-                outline: none;
-                color:  rgb(255,255,255);
-                border-radius: 20px;
-                border-style: outset;
-                border-color: black;
-                font-weight: bolder;
-                width: 54%;
-                font-size: 18px;
+            background-color: black;
+            outline: none;
+            color:  white;
+            border-radius: 20%;
+            border-style: outset;
+            border-color: black;
+            font-weight: bolder;
+            width: 80%;
+            font-size: 18px;
 
+        }
+        .just{
+            float:left;
+            margin-left:1%;
+            margin:20px;
+            position:absolute;
+            left:0;
+            top:0px; 
+            text-shadow: 1px 1px 1px black;
         }
         </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -140,7 +176,7 @@
     
 
     <div class="just">
-        <a  href="index.php"> <i  class="fa fa-home fa-4x"></i></a>
+        <a  href="bhome.php"> <i  class="fa fa-home fa-4x"></i></a>
     </div>
 
 
@@ -159,7 +195,36 @@
                         <label><b>Name :</b></label>
                     </td>
                     <td>
-                    <textarea rows="2" column="18" value="" disabled><?php echo $name;?></textarea><br>
+                        <textarea rows="2" column="18" value="" disabled><?php echo $name;?></textarea><br>
+                    </td>
+                </tr>
+
+                <tr align = "center">
+                    <td>
+                        <label><b>Pan :</b></label>
+                    </td>
+                    <td>
+                        <textarea rows="2" column="20" disabled><?php echo $pan;?></textarea><br>
+                    </td>
+                </tr>
+
+                <tr align = "center">
+                    <div class="in-icons">
+                    <td>
+                        <label><b>Company :</b></label>
+                    </td>
+                    <td>
+                        <textarea rows="2" column="18" value="" disabled><?php echo $comp;?></textarea><br>
+                    </td>
+                </tr>
+
+                <tr align = "center">
+                    <div class="in-icons">
+                    <td>
+                        <label><b>License :</b></label>
+                    </td>
+                    <td>
+                        <textarea rows="2" column="18" value="" disabled><?php echo $license;?></textarea><br>
                     </td>
                 </tr>
 
@@ -201,7 +266,16 @@
                     </td>
                 </tr>
 
-                
+                <tr align = "center">
+                    <td>
+                    <label><b>Bank :</b></label>
+                    </td>
+                    <td>
+                        <input type="number" name="bank" value="<?php echo $account; ?>" />  <br> 
+                    </td>
+                    <span style=" display:block;  margin-bottom: .75em; "></span>
+                </tr>
+
                 <tr colspan =2 align = "center">
                     <td colspan =2>
                         <input type="submit" name="confirm" value="Confirm">
@@ -219,25 +293,32 @@
 
 </body>
 </html>
+
 <?php
 
-include("../Includes/db.php");
+    include("../Includes/db.php");
 
-if (isset($_POST['confirm'])) {
-    $phone = mysqli_real_escape_string($con, $_POST['phonenumber']);
-    $address = mysqli_real_escape_string($con, $_POST['address']); 
-    
-    $query = "UPDATE buyerregistration 
-              SET buyer_phone = '$phone',
-                  buyer_addr = '$address'  
-              WHERE buyer_id IN 
-                  (SELECT buyer_id FROM buyerregistration 
-                   WHERE buyer_phone='$sessphonenumber')";
-    echo $query;
-
-    $run = mysqli_query($con, $query);
-
-    $_SESSION['phonenumber'] = $phone;
-    echo "<script>window.open('BuyerProfile.php','_self')</script>";
-}
+    if (isset($_POST['confirm']))
+    {
+        $phone = mysqli_real_escape_string( $con,$_POST['phonenumber']);
+        $address = mysqli_real_escape_string( $con,$_POST['address']);
+        $account = mysqli_real_escape_string( $con,$_POST['bank']);   
+        $user = mysqli_real_escape_string( $con,$_POST['username']);   
+        
+        $query = "update buyerregistration 
+                  set buyer_phone = '$phone', buyer_username = '$user', 
+                  buyer_addr = '$address', buyer_bank = '$account' 
+                  where buyer_id in 
+                  (select buyer_id from buyerregistration 
+                  where buyer_phone='$sessphonenumber')"; 
+        echo $query;
+        $run = mysqli_query($con, $query);
+        if ($run) {
+            echo '<script>alert("Profile updated successfully!");</script>';
+            $_SESSION['phonenumber'] = $phone;
+            echo "<script>window.open('BuyerEditProfile.php','_self')</script>";
+        } else {
+            echo '<script>alert("Error updating profile. Please try again.");</script>';
+        }
+    }
 ?>

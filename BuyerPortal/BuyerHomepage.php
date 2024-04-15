@@ -1,4 +1,4 @@
- <?php
+<?php
 	include("../Functions/functions.php");
 	include("../Includes/db.php");
 	?> 
@@ -176,45 +176,25 @@ button:hover {
     background-color: white;
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 20px;
-	margin-top: 3px;
-}
-.slogan{
-	margin-top: 15%;
-	font-size: 20px;
-}
-.contact-us{
-	margin-top: 5%;
-	font-size: 20px;
-	margin-left: 5%;
-}
-.left-side, .right-side {
-    flex-basis: calc(50% - 1px);
-}
-.contact-heading{
-	font-size: 35px;
-}
+.myfooter {
+            background-color: white;
+            color: goldenrod;
+            margin-top: 15px;
+        }
 
-.imgs{
-	width: 25px;
-	height: 20px;
-}
-.imgss{
-	width: 25px;
-	height: 25px;
-}
+        .aligncenter {
+            text-align: center;
+        }
+
+        a {
+            color: goldenrod;
+        }
+        
 </style>
 </head>
 <body>
 	<div class="header">
-		<a href="BuyerHomepage.php"><img id="logo" src="../Images/Website/logo (3).jpg"></a>
+		<a href="BuyerHomepage.php"><img id="logo" src="../Images/Website/farmket.jpg"></a>
 		<div class="search_input">
 			<form action="SearchResults.php" method="get" enctype="multipart/form-data">
 				<i class="fas fa-search" style="font-size:20px;color:white;"></i>
@@ -228,23 +208,10 @@ button:hover {
 			<button class="btn btn-default dropdown-toggle" type="button" id="menu1" class="dric" data-toggle="dropdown" style="margin-top:-5px;"> </span></button>
 			<ul class="dropdown-menu etc">
 				<?php
-				if (isset($_SESSION['phonenumber'])) {
-					//used to go to user profile page
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'BuyerProfile.php'><label class='makeitgreen'>Profile</label></a></li>";
-					//
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= '#'><label class='makeitgreen'>Save For Later</label></a></li>";
-                    //used to redirect to buypage
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'BuyerTransactions.php'><label class='makeitgreen'>Transactions</label></a></li>";
-                    // used to got to buyer page
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'BuyerProfile.php'><label class='makeitgreen'>Subscription</label></a></li>";
-
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= 'Farmers.php'><label class='makeitgreen'>Farmers</label></a></li>";
-					//used to go to log out page
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href='../Includes/logout.php'><label class='makeitgreen'>Logout</label></a></li>";
-				} else {
-					echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= '../auth/BuyerLogin.php'><label class='makeitgreen'>Login</label></a></li>";
-				}
+				echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href= '../auth/BuyerLogin.php'><label class='makeitgreen'>Login</label></a></li>";
 				?>
+			</ul>
+				
 		</div>
 		<div class="proicon">
 			<?php
@@ -283,7 +250,7 @@ button:hover {
     <!--product-->
     <div class="row">
       <?php
-      getproduct();
+      getproducts();
       ?>
     </div>
   </div>
@@ -292,25 +259,37 @@ button:hover {
 	<button type="button">See More</button>
 </div>
   
-<div class="footer">
-    <div class="left-content">
-        <div class="slogan">
-            <p>Farmket: Where organic goodness grows abundantly, from farm to table.</p>
+<<section id="footer" class="myfooter">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col aligncenter">
+                    <br>
+                    <h5>Payment Option</h5>
+                    <img src="../Images/Website/esewa.png" alt="paytm">
+                    <img src="../Images/Website/cod.jpg" alt="paytm" style="height:37px">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
+                    <p><u><a href="https://www.Farmket.com/">Farmket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
+                    <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.farmket.com" target="_blank">farmket</a></p>
+                </div>
+                </hr>
+            </div>
         </div>
-		<div class="copyright">
-            <span class="copyright-text"><h3>Copyright ©</span><span class="brand-name">Farmket 2024, Kathmandu</h3></span>
-        </div>
-    </div>
-    <div class="right-side">
-        <div class="contact-us">
-            <div class="contact-heading">Contact Us</div>
-            <div class="contact-info">
-                <p><strong>Email:</strong><br><img class="imgs" src="../Images/Website/gmail.jpg" alt="Email Logo">farmket@Organicfood.com</p>
-                <p><strong>Phone:</strong><br><img class="imgss" src="../Images/Website/phone.jpg" alt="Phone Logo"> +977 9861813030<br><img class="imgss" src="../Images/Website/phone.jpg" alt="Phone Logo"> +977 9818603797</p>
-            </div>                               
-        </div>
-    </div>
-</div>
+    </section>
 </body>
 
 </html>
