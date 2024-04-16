@@ -236,7 +236,7 @@ include("../Functions/functions.php");
             .logins {
                 text-align: center;
                 margin-right: 35%;
-                padding: 15px;
+                padding: 10px;
             }
 
             .searchbox {
@@ -268,8 +268,23 @@ include("../Functions/functions.php");
             }
         }
 
-
-
+        /* nav bar option */
+        .bar{
+                margin-top: 10px;
+                margin-left: 10px;
+        }
+        .bar a {
+            float: left;
+            display: block;
+            color: green;
+            text-decoration: none;
+        }
+        .bar a:hover {
+            color: white;
+        }
+        .bar a.active {
+            color: white;
+        }
 
         /* Image Grig */
 
@@ -405,14 +420,14 @@ include("../Functions/functions.php");
             </div>
             <div class="p-2 ml-5"><i class='far fa-user-circle' style='font-size:30px; color: green;margin-top:2px;'></i></div>
             <a class="float-left" href="bhome.php">
-                <img src="farmket.jpg" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
+                <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
             </a>
         </div>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
         </button>
         <a class="float-left" href="bhome.php">
-            <img src="farmket.jpg" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
+            <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -423,6 +438,13 @@ include("../Functions/functions.php");
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
                     <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
+                <div class="bar">
+                    <a href="bhome.php">Home</a>
+                    <a href="product.php">Product</a>
+                    <a href="aboutus.php">About Us</a>
+                </div>
+            </div>
+            </div>
             </div>
             <?php
             getUsername();

@@ -37,7 +37,6 @@
         <label for="cat_title"><h2>Category Title:</h2></label>
         <input type="text" id="cat_title" name="cat_title" required>
         <button class="btn" type="submit" name="submit">Insert</button>
-        <button class="btn"><a href="admin_dashboard.php">Back</a></button>
     </form>
 
     <?php
@@ -57,7 +56,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_query($con, $sql)) {
         echo "<script>alert('Category has been added')</script>";
-        echo "<script>window.open('insert_category.php','_self')</script>";
+        echo "<script>window.open('admindash.php','_self')</script>";
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($con);
     }

@@ -501,14 +501,14 @@ margin-top:2%;
     </div>
     <div class="p-2 ml-5"><i class='far fa-user-circle' style='font-size:30px; color: green;margin-top:2px;'></i></div>
     <a class="float-left" href="bhome.php">
-        <img src="farmket.jpg" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
+        <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
     </a>
 </div>
 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
 </button>
 <a class="float-left" href="bhome.php">
-    <img src="farmket.jpg" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
+    <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
 </a>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -636,7 +636,6 @@ margin-top:2%;
                                             <option value="Province-4">Province-4</option>
                                             <option value="Province-5">Province-6</option>
                                             <option value="Province-6">Province-7</option>
-                                            <option value="Province-8">Province-8</option>
                          </select>
                     </div>
                     <div class="col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 districts">
