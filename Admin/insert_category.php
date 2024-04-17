@@ -62,8 +62,5 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
-
-    <!-- Include JavaScript files here -->
 </body>
 </html>

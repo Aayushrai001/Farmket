@@ -636,6 +636,7 @@ margin-top:2%;
                                             <option value="Province-4">Province-4</option>
                                             <option value="Province-5">Province-6</option>
                                             <option value="Province-6">Province-7</option>
+                                            <option value="Province-8">Province-8</option>
                          </select>
                     </div>
                     <div class="col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 districts">
