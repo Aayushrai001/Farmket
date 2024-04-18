@@ -1,10 +1,11 @@
 <?php
 include("../Functions/functions.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Category</title>
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +16,7 @@ include("../Functions/functions.php");
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
      <a href="https://icons8.com/icon/83325/roman-soldier"></a>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-     <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>>
+     <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
      <script>
         function state() {
             var a = document.getElementById('states').value;
@@ -35,21 +35,16 @@ include("../Functions/functions.php");
             } else if (a === 'Province-7') {
                 array = ['Achham', 'Baitadi', 'Bajhang', 'Bajura', 'Dadeldhura', 'Darchula', 'Doti', 'Kailali', 'Kanchanpur'];
             }
-
-           
             var string = "";
             for (let i = 0; i < array.length; i++) {
                 string = string + "<option>" + array[i] + "</option>";
-
             }
             string = "<select nmae = 'lol'>" + string + "</select>"
             document.getElementById('district').innerHTML = string;
         }
     </script>
-     </script>
      <script>
           var a;
-
           function display() {
                if (a == 0) {
                     document.getElementById("majic").style.visibility = "hidden";
@@ -62,10 +57,8 @@ include("../Functions/functions.php");
 
                     return a = 0;
                }
-
           }
      </script>
-
      <style>
           .myfooter {
                background-color: #292b2c;
@@ -423,32 +416,10 @@ include("../Functions/functions.php");
             }
         } */
      </style>
-     <!-- <script>
-        var a;
-
-        function display() {
-            if (a == 0) {
-                document.getElementById("majic").style.display = "none";
-                document.getElementById("show").style.display = "inline-block";
-                return a = 1;
-            } else {
-                document.getElementById("majic").style.visibility = "visible";
-                document.getElementById("show").style.visibility = "hidden";
-                // document.getElementById("show").style. visibility= "hidden";
-                return a = 0;
-            }
-
-        }
-    </script> -->
-
 </head>
-
 <body>
-
 <nav class="navbar navbar-expand-xl ">
-
 <div class=" flex-row-reverse left ">
-
     <div class="p-2">
         <div class="icon2">
             <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
@@ -467,7 +438,6 @@ include("../Functions/functions.php");
     <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
 </a>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
     <div class="input-group mb-1 ml-2 searchbox">
         <div class="input-group-prepend">
             <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i></div>
@@ -480,7 +450,6 @@ include("../Functions/functions.php");
     getUsername();
     ?>
     <div class="list-group moblists">
-
         <?php
         if (isset($_SESSION['phonenumber'])) {
             echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
@@ -491,13 +460,8 @@ include("../Functions/functions.php");
             echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
         }
         ?>
-
     </div>
 </div>
-
-
-
-
 <div class=" flex-row-reverse right ">
     <div class="p-2 cart">
         <div class="icon2">
@@ -522,11 +486,8 @@ include("../Functions/functions.php");
             ?>
         </div>
     </div>
-
-
     <div class="text-success  login">Login</div>
 </div>
-
 </nav>
      <div class="container">
           <div class="d-flex justify-content-around bg-white mb-3">
@@ -569,12 +530,6 @@ include("../Functions/functions.php");
                </div>
           </div>
      </div>
-
-
-
-
-
-
      <form action="" method="post">
           <div class="container">
                <div class="row   p-2">
@@ -598,26 +553,14 @@ include("../Functions/functions.php");
                          </select>
                     </div>
                     <div class="col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 districts">
-                         <!-- <div class="dropdown">
-                         <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <b>Districts</b>
-                         </button>
-                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Patato</a>
-                              <a class="dropdown-item" href="#">Carrot</a>
-                              <a class="dropdown-item" href="#">Onion</a>
-                         </div>
-                    </div> -->
                          <select class="p-2 ml-5 shadow-lg" name="districtInput" id="district" style="border-radius: 6px; border-color: #FFD700 ">
                               <option>Select District</option>
                          </select>
-
                     </div>
                     <div class="col-12 col-xl-3 col-lg-3 col-md-12 col-sm-12 go">
                          <button class='btn btn-border-secondary mx-5 ' name='go' type='submit' style='color:black ;float:right;font-weight:50px; background-color: black;color:#FFD700'>Filter</button>
                     </div>
                </div>
-
           </div>
           </div>
      </form>
@@ -628,25 +571,16 @@ include("../Functions/functions.php");
           echo $stateInput;
           echo "<br>";
           echo $districtInput;
-
           if ($stateInput != '0' && $districtInput == 'Select District') {
                echo "<script>window.open('StateSearch.php?state=$stateInput','_self')</script>";
           } else {
                echo "<script>window.open('DistrictSearch.php?district=$districtInput','_self')</script>";
           }
      }
-
      ?>
-
-
-
-
-
      <div class="container">
           <br>
           <div class="row">
-
-
                <?php
                cart();
                ?>
@@ -755,13 +689,8 @@ include("../Functions/functions.php");
                ?>
           </div>
           <br><br>
-
-
      </div>
      </div>
-
-
-
      <!-- footer -->
      <section id="footer" class="myfooter">
           <div class="container">

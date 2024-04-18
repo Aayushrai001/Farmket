@@ -66,7 +66,6 @@ include("../Functions/functions.php");
     <style>
         .myfooter {
             background-color: #292b2c;
-
             color: goldenrod;
             margin-top: 15px;
         }
@@ -149,7 +148,7 @@ include("../Functions/functions.php");
         }
 
         .searchbox {
-            width: 60%;
+            width: 100%;
         }
 
         .lists {
@@ -250,7 +249,6 @@ include("../Functions/functions.php");
                 text-align: center;
                 width: 100%;
             }
-
             .guard {
                 /* width: 100%; */
                 text-align: center;
@@ -267,25 +265,6 @@ include("../Functions/functions.php");
                 padding: 0 10px;
             }
         }
-
-        /* nav bar option */
-        .bar{
-                margin-top: 10px;
-                margin-left: 10px;
-        }
-        .bar a {
-            float: left;
-            display: block;
-            color: green;
-            text-decoration: none;
-        }
-        .bar a:hover {
-            color: white;
-        }
-        .bar a.active {
-            color: white;
-        }
-
         /* Image Grig */
 
 
@@ -343,10 +322,6 @@ include("../Functions/functions.php");
         }
         
 
-
-
-
-
         #headings {
             /* text-shadow: 2px 1px #666666; */
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -386,28 +361,8 @@ include("../Functions/functions.php");
             }
         } */
     </style>
-    <!-- <script>
-        var a;
-
-        function display() {
-            if (a == 0) {
-                document.getElementById("majic").style.display = "none";
-                document.getElementById("show").style.display = "inline-block";
-                return a = 1;
-            } else {
-                document.getElementById("majic").style.visibility = "visible";
-                document.getElementById("show").style.visibility = "hidden";
-                // document.getElementById("show").style. visibility= "hidden";
-                return a = 0;
-            }
-
-        }
-    </script> -->
-
 </head>
-
 <body>
-
     <nav class="navbar navbar-expand-xl ">
 
         <div class=" flex-row-reverse left ">
@@ -438,11 +393,9 @@ include("../Functions/functions.php");
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
                     <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
-                <div class="bar">
-                    <a href="bhome.php">Home</a>
-                    <a href="product.php">Product</a>
-                    <a href="aboutus.php">About Us</a>
-                </div>
+                    <a href="bhome.php" class="nav-link">Home</a>
+                    <a href="product.php" class="nav-link">Product</a>
+                    <a href="aboutus.php" class="nav-link">About Us</a>
             </div>
             </div>
             </div>
