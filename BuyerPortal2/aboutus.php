@@ -169,7 +169,7 @@ include("../Functions/functions.php");
             transition: 0.5s;
         } */
 
-        .images:hover {
+        /* .images:hover {
 
             height: 220px;
             box-shadow: 5px 5px 10px grey;
@@ -186,15 +186,15 @@ include("../Functions/functions.php");
             /* font-family: serif; */
         }
 
-        .guard span {
+        /* .guard span {
             background: white;
             padding: 0 10px;
-        }
+        } */
 
         /* .settings{
     margin-left:10px;
 } */
-        @media only screen and (min-device-width:320px) and (max-device-width:480px) {
+        /* @media only screen and (min-device-width:320px) and (max-device-width:480px) {
             .mycarousel {
                 display: none;
             }
@@ -218,26 +218,23 @@ include("../Functions/functions.php");
             .right {
                 display: none;
                 background-color: #ff5500;
-            }
+            } */
 
             /* 
             .settings{
             margin-left:79%;
         } */
-            .left {
+            /* .left {
                 display: flex;
             }
-
             .moblogo {
                 display: none;
             }
-
             .logins {
                 text-align: center;
                 margin-right: 35%;
                 padding: 10px;
             }
-
             .searchbox {
                 width: 95%;
                 margin-right: 5%;
@@ -260,11 +257,11 @@ include("../Functions/functions.php");
 
             }
 
-            .guard span {
+            /* .guard span {
                 background: white;
                 padding: 0 10px;
-            }
-        }
+            } */
+        } */
         /* Image Grig */
 
 
@@ -292,8 +289,8 @@ include("../Functions/functions.php");
             padding: 0 4px;
         }
 
-        /* Create four equal columns that sits next to each other */
-        .column {
+        /* Create four equal columns that sits next to each other*/
+        /*.column {
             -ms-flex: 25%;
             /* IE10 */
             flex: 25%;
@@ -305,7 +302,7 @@ include("../Functions/functions.php");
             margin-top: 8px;
             vertical-align: middle;
             width: 100%;
-        }
+        } /*/
 
         .myfooter {
             background-color: #292b2c;
@@ -325,7 +322,7 @@ include("../Functions/functions.php");
         #headings {
             /* text-shadow: 2px 1px #666666; */
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
+        }/*
 
         @media screen and (max-width: 800px) {
             .kolum {
@@ -341,7 +338,7 @@ include("../Functions/functions.php");
                 max-width: 50%;
                 max-height: 40%;
             }
-        }
+        } */
 
         /* Responsive layout - makes a two column-layout instead of four columns */
         /* @media screen and (max-width: 800px) {
@@ -359,7 +356,33 @@ include("../Functions/functions.php");
                 flex: 100%;
                 max-width: 100%;
             }
-        } */
+        } **/
+        .container {
+    display: flex;
+    justify-content: center; /* Optional: Center the card horizontally */
+}
+.card {
+    display: flex;
+    flex-direction: row-reverse; 
+    width: 1000px; 
+    margin: 20px;
+    border: white; 
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.image {
+    width: 100%; /* Adjust as needed */
+    height: 400px; /* Maintain aspect ratio */
+}
+.longguard{
+    font-size: 20px;
+    font-weight: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
     </style>
 </head>
 <body>
@@ -409,7 +432,6 @@ include("../Functions/functions.php");
                     echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
                     echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
                     echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
-                    echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
                     echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
                 } else {
                     echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
@@ -449,78 +471,20 @@ include("../Functions/functions.php");
                     ?>
                 </div>
             </div>
-
-
             <div class="text-success  login">Login</div>
         </div>
-
     </nav>
-
-
     <div class="container">
-        <div class="d-flex justify-content-around bg-white mb-3">
-
-            <div class="p-2 ">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Fruits
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getFruits();
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vegetables
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getVegetables();
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2 ">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Crops
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getCrops();
-                        ?>
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+        <div>
+            <img src="../Images/Website/aboutus.jpg"class="image">
+            <h4 id="headings" class="longguard"><h1>About Us</h1>
+            Farmket is a leading farm e-commerce platform dedicated to connecting farmers and traders. We provide a seamless online marketplace where farmers can showcase their produce and traders can access a wide 
+            range of fresh agricultural products. Our platform prioritizes transparency, fair trade, and efficiency, empowering farmers to reach a broader market and enabling traders to source quality products directly from farms. At Farmket, we are committed 
+            to revolutionizing the agricultural industry by fostering sustainable partnerships and enhancing accessibility to farm-fresh goods for everyone.</h4>
+        </div>
         </div>
     </div>
-
-
-
-    <div class="container">
-
-        <div class="text-center">
-            <h1 id="headings" class="longguard"><span><b>Best Selling Products All Over Nepal</b></span>
-            </h1>
-        </div>
-        <br>
-        <div class="row">
-            <?php
-            cart();
-            getProduct();
-            ?>
-        </div>
-        <br><br>
-
-
-    </div>
-    </div>
-
-
 
     <!-- footer -->
     <section id="footer" class="myfooter">
@@ -554,7 +518,6 @@ include("../Functions/functions.php");
             </div>
         </div>
     </section>
-    <!-- ./Footer a ,myfooter,aligncenter-->
 </body>
 
 </html>

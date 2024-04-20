@@ -1,6 +1,6 @@
- <?php
+<?php
      include("../Functions/functions.php");
-     ?>
+?>
 
  <!DOCTYPE html>
 
@@ -842,21 +842,10 @@
                      text-align: center;
                      width: 100%;
                 }
-
-
            }
       </style>
-
  </head>
-
  <body>
-
-
-
-
-
-      <body>
-
            <nav class="navbar navbar-expand-xl ">
                 <!-- <a href="#" class="navbar-brand">Academind</a> -->
                 <div class=" flex-row-reverse left ">
@@ -878,39 +867,6 @@
                 <a class="float-left" href="farmerHomepage.php">
                      <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
                 </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-
-
-                     <div class="proicon">
-
-                          <?php
-                              if (!isset($_SESSION['phonenumber'])) {
-                                   echo "<a href='../auth/FarmerLogin.php'> <div class='text-success  logins '></div></a>";
-                              }
-                              ?>
-                     </div>
-
-                     <div class="list-group moblists">
-
-                          <?php
-                              if (isset($_SESSION['phonenumber'])) {
-
-                                   echo "<a href='FarmerProfile.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
-                                   echo "<a href='Transactions.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Orders</a>";
-                              } else {
-                                   echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
-                              }
-                              ?>
-                          <div class='loginz' style="text-align:center;">
-                               <?php getFarmerUsername(); ?>
-                          </div>
-                     </div>
-                </div>
-
-
-
-
                 <div class=" flex-row-reverse right ">
                      <div class="p-2 cart">
                           <!-- <div class="icon2">
@@ -921,36 +877,24 @@
                                <?php getFarmerUsername(); ?>
                           </div>
                      </div>
-                     <div class="dropdown p-2 settings ">
-                          <button class="btn  dropdown-toggle text-success" style="margin-top:-20px;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Settings
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                               <?php
-                                   if (isset($_SESSION['phonenumber'])) {
-                                        echo "<a href='FarmerProfile.php' class='dropdown-item' style='padding-right:-20px;'>Profile</a>";
-                                        echo "<a href='Transactions.php' class='dropdown-item' style='padding-right:-20px;'>Orders</a>";
-                                   } else {
-                                        echo "<a href='../Includes/logout.php' class='dropdown-item' style='padding-right:-20px;'>Logout</a>";
-                                   }
-                                   ?>
-                          </div>
-                     </div>
                 </div>
            </nav>
            <br>
            <div class="row" style="text-align:center;">
-                <div class="col-md-3 col-sm-12">
-                     <a href="farmerHomepage.php" id="navbar"><i class="fa fa-home" aria-hidden="true"></i><label>Home</label></a>
+                <div class="col-md-2 col-sm-12">
+                     <a href="farmerHomepage.php" id="navbar"><label>Home</label></a>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                     <a href="farmerprofile2.php" id="navbar"><label>Profile</label></a>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                     <a href="MyProducts.php" id="navbar"><label>My Products</label></a>
                 </div>
                 <div class="col-md-3 col-sm-12">
-                     <a href="MyProducts.php" id="navbar"><i class="fa fa-leaf" aria-hidden="true"></i><label>My Products</label></a>
+                     <a href="Transactions.php" id="navbar"><label>My Transactions</label></a>
                 </div>
-                <div class="col-md-3 col-sm-12">
-                     <a href="Transactions.php" id="navbar"><i class="fa fa-exchange" aria-hidden="true"></i><label>My Transactions</label></a>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                     <a href="CallCenter.php" id="navbar"><i class="fa fa-phone fa-rotate-vertical" aria-hidden="true"></i><label>Call Centers/SMS</label></a>
+                <div class="col-md-2 col-sm-12">
+                     <a href="../Includes/logout.php" id="navbar"><label>Log Out</label></a>
                 </div>
            </div>
            <hr>

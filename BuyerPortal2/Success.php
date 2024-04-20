@@ -98,7 +98,7 @@
        }
 
        .searchbox {
-            width: 60%;
+            width: 100%;
        }
 
        .lists {
@@ -322,7 +322,10 @@
         <form action="SearchResult.php" method="get" enctype="multipart/form-data">
             <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
         </form>
-    </div>
+          <a href="bhome.php" class="nav-link">Home</a>
+          <a href="product.php" class="nav-link">Product</a>
+          <a href="aboutus.php" class="nav-link">About Us</a>
+    </div> 
     <?php
     getUsername();
     ?>

@@ -227,17 +227,14 @@ include("../Functions/functions.php");
             .left {
                 display: flex;
             }
-
             .moblogo {
                 display: none;
             }
-
             .logins {
                 text-align: center;
                 margin-right: 35%;
                 padding: 10px;
             }
-
             .searchbox {
                 width: 95%;
                 margin-right: 5%;
@@ -408,7 +405,6 @@ include("../Functions/functions.php");
                 if (isset($_SESSION['phonenumber'])) {
                     echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
                     echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
-                    echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
                     echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
                     echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
                 } else {

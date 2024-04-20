@@ -1,12 +1,8 @@
 <?php
 session_start();
-
 ?>
-
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +19,7 @@ session_start();
     <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
+        *{
         color: goldenrod;
         margin-top: 15px;
         }
@@ -238,7 +234,6 @@ session_start();
         }
     </style>
 </head>
-
 <body>
 
     <main class="my-form">
@@ -312,11 +307,9 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Please Enter Valid Details');</script>";
         echo "<script>window.open('BuyerLogin.php','_self')</script>";
     }
-
     while ($row = mysqli_fetch_array($run_query)) {
         $id = $row['buyer_id'];
     }
-
     $_SESSION['phonenumber'] = $phonenumber;
     echo "<script>window.open('../BuyerPortal2/bhome.php','_self')</script>";
 }

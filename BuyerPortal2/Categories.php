@@ -145,7 +145,7 @@ include("../Functions/functions.php");
           }
 
           .searchbox {
-               width: 60%;
+               width: 100%;
           }
 
           .lists {
@@ -445,6 +445,9 @@ include("../Functions/functions.php");
         <form action="SearchResult.php" method="get" enctype="multipart/form-data">
             <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
         </form>
+        <a href="bhome.php" class="nav-link">Home</a>
+                    <a href="product.php" class="nav-link">Product</a>
+                    <a href="aboutus.php" class="nav-link">About Us</a>
     </div>
     <?php
     getUsername();
@@ -534,12 +537,12 @@ include("../Functions/functions.php");
           <div class="container">
                <div class="row   p-2">
                     <div class="col-12 col-xl-3 col-lg-3 col-md-12 col-sm-12">
-                         <div class="text-center">
+                         <!-- <div class="text-center">
                               <h4 class="font-weight-bold
                               " style="color: #FFD700 ">Select your region</h4>
-                         </div>
+                         </div> -->
                     </div>
-                    <div class="col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 p-0 States">
+                    <!-- <div class="col-6 col-xl-3 col-lg-3 col-md-6 col-sm-6 p-0 States">
 
                          <select class="p-2 shadow-lg" id="states" name="stateInput" onchange="state()" tabindex="1" style="border-radius: 6px; margin-right:  200px; border-color:#FFD700 ">
                          <option value="0">--Select State--</option>
@@ -559,7 +562,7 @@ include("../Functions/functions.php");
                     </div>
                     <div class="col-12 col-xl-3 col-lg-3 col-md-12 col-sm-12 go">
                          <button class='btn btn-border-secondary mx-5 ' name='go' type='submit' style='color:black ;float:right;font-weight:50px; background-color: black;color:#FFD700'>Filter</button>
-                    </div>
+                    </div> -->
                </div>
           </div>
           </div>
@@ -716,7 +719,7 @@ include("../Functions/functions.php");
                </div>
                <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-                         <p><u><a href="https://www.agrocraft.com/">Framket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
+                         <p><u><a href="https://www.farmket.com/">Framket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
                          <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com" target="_blank">Farmket</a></p>
                     </div>
                     </hr>

@@ -129,7 +129,7 @@ include("../Functions/functions.php");
     }
 
     .searchbox {
-        width: 60%;
+        width: 100%;
     }
 
     .lists {
@@ -265,6 +265,9 @@ include("../Functions/functions.php");
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
                     <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
+                <a href="bhome.php" class="nav-link">Home</a>
+                <a href="product.php" class="nav-link">Product</a>
+                <a href="aboutus.php" class="nav-link">About Us</a>
             </div>
             <?php
             getUsername();
@@ -429,7 +432,7 @@ include("../Functions/functions.php");
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-                    <p><u><a href="https://www.Farket.com/">AgroCraft Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
+                    <p><u><a href="https://www.Farket.com/">Faarmket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
                     <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com" target="_blank">Framket</a></p>
                 </div>
                 </hr>

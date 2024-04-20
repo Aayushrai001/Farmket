@@ -106,7 +106,7 @@ include("../Functions/functions.php");
     }
 
     .searchbox {
-        width: 60%;
+        width: 100%;
     }
 
     .lists {
@@ -355,6 +355,9 @@ include("../Functions/functions.php");
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
                     <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
+                <a href="bhome.php" class="nav-link">Home</a>
+                <a href="product.php" class="nav-link">Product</a>
+                <a href="aboutus.php" class="nav-link">About Us</a>
             </div>
             <?php
             getUsername();
@@ -488,7 +491,6 @@ include("../Functions/functions.php");
                                         <div class='col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12'> 
                                             <button name='cart' type='submit' class='btn btn-warning border-secondary addtocart' style='color:black'><b>Add to cart</b><i class='fa' style='font-size:17px; '>&#61562;</i></button>
                                         </div>
-                                        <div class='col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12'> <a href='#' class='btn btn-warning border-secondary saveforlater' style='color:black'><b>Save For later</b><img src='saveforlater4.png' class='ml-1 mb-1'></a></div>
                                     </div>
                                 </form>
                                 <div class='row text-center ml-4 mt-3'>
