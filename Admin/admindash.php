@@ -45,10 +45,10 @@
         }
 
         .container {
-            padding: 20px;
-            grid-row: 2; /* Place in the second row */
-            grid-column: 2; /* Place in the second column */
+            padding: 0; /* Remove padding to use full width */
+            width: 100%;
         }
+
     </style>
 </head>
 <body>
