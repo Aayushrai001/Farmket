@@ -60,52 +60,21 @@ function CheckoutIdentify()
 
 function getCrops()
 {
-
-    global $con;
-
-    $query = "select * from products where product_cat = 1 order by RAND() LIMIT 0,10";
-
-    $run_query = mysqli_query($con, $query);
-
-    while ($row_cat = mysqli_fetch_array($run_query)) {
-        $product_type = $row_cat['product_type'];
-        echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-    }
+    $product_cat = 1; // Set the product category value for Crops
+    echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Crops</a></button>";
 }
 
-function getFruits()
-{
-
-    global $con;
-
-    $query = "select * from products where product_cat = 3 order by RAND() LIMIT 0,10";
-
-    $run_query = mysqli_query($con, $query);
-
-    while ($row_cat = mysqli_fetch_array($run_query)) {
-        $product_type = $row_cat['product_type'];
-        // echo "<li class='options' role='presentation'><a role='menuitem' tabindex='-1' href='../BuyerPortal/Categories.php?type=$product_type'> 
-        //         <label class='crop_items'>$product_type</label></a></li>";
-
-        echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-    }
+function getFruits(){
+    $product_cat = 3; // Set the product category value for Crops
+        echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Fruits</a></button>";
 }
+
 
 function getVegetables()
 {
-
-    global $con;
-
-    $query = "select * from products where product_cat = 2 order by RAND() LIMIT 0,10";
-
-    $run_query = mysqli_query($con, $query);
-
-    while ($row_cat = mysqli_fetch_array($run_query)) {
-        $product_type = $row_cat['product_type'];
-        echo "<a class='dropdown-item' href='../BuyerPortal2/Categories.php?type=$product_type'>$product_type</a>";
-    }
+    $product_cat = 2; // Set the product category value for Crops
+    echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Vegetables</a></button>";
 }
-
 
 
 function getProduct()
@@ -168,6 +137,75 @@ while ($rows = mysqli_fetch_array($run_query)) {
                         <div class='col-1 col-xl-3 col-lg-2 col-md-2 col-sm-2'></div>
                         <div class='col-12 col-xl-6 col-lg-6 col-md-6  col-sm-12'>
                             <a href='../BuyerPortal2/bhome.php?add_cart=$product_id' class='btn btn-warning border-secondary mr-1  ' style='color:black ;font-weight:50px;'>Add to cart<img src='carticons.png' height='20px'></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       ";
+}
+}  
+
+function getProducts()
+{
+global $con;
+$query = "select * from products  order by RAND() LIMIT 0,12";
+$run_query = mysqli_query($con, $query);
+echo "<br>";
+while ($rows = mysqli_fetch_array($run_query)) {
+    $product_id = $rows['product_id'];
+    $product_title = $rows['product_title'];
+    $product_image = $rows['product_image'];
+    $product_price = $rows['product_price'];
+    $product_delivery = $rows['product_delivery'];
+    $farmer_fk = $rows['farmer_fk'];
+    $farmer_name_query = "select farmer_name from farmerregistration where farmer_id = $farmer_fk";
+    $running_query_name = mysqli_query($con, $farmer_name_query);
+    $name = ""; // Initialize $name variable
+    if ($running_query_name && mysqli_num_rows($running_query_name) > 0) {
+        $names = mysqli_fetch_array($running_query_name);
+        $name = $names['farmer_name'];
+    }
+    if ($product_delivery == "yes") {
+        $product_delivery = "Delivery by Farmer";
+    } else {
+        $product_delivery = "Delivery by Farmer Not Available";
+    }
+
+    echo "
+        <div class='col col-12 col-sm-12 col-md-4 col-xl-4 col-lg-4'>
+            <div class='card pb-1 pl-1 pr-1 pt-0' style='height:542px'>
+                <br>
+                <div class='mt-0'><b>
+                        <h4><img src='iconbig.png' style='width: 28px; margin-bottom:  10px;'> $name
+                    </b></h4>
+                </div>
+                <a href='../BuyerPortal2/ProductDetails.php?id=$product_id'>
+                    <img class='card-img-top' src='../Admin/product_images/$product_image' alt='Card image cap' height='300px'>
+                </a>
+                <div class='card-body pb-0'>
+                    <div class='row'>
+                        <div class='col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12'>
+                            <div class='input-group mb'>
+                                <div class='input-group-prepend'>
+                                    <h5 class='card-title font-weight-bold'>$product_title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12'>
+                            <div class='input-group mb-1'>
+                                <div class='input-group-prepend'>
+                                    <span class='input-group-text bg-warning border-secondary p-1' style='color:black;' id='inputGroup-sizing-default' placeholder='1'><b>Quantity</b></span>
+                                </div>
+                                <input type='number' class='form-control' aria-label='Default' style='margin-top:0%;width:20%;padding:0%;' aria-describedby='inputGroup-sizing-default'>
+                            </div>
+                        </div>
+                    </div>
+                    <p class='card-text mb-2 font-weight-bold'>PRICE:- $product_price Rs/kg</p>
+                    <div class='row'>
+                        <div class='col-1 col-xl-3 col-lg-2 col-md-2 col-sm-2'></div>
+                        <div class='col-12 col-xl-6 col-lg-6 col-md-6  col-sm-12'>
+                            <a href='../BuyerPortal2/product.php?add_cart=$product_id' class='btn btn-warning border-secondary mr-1  ' style='color:black ;font-weight:50px;'>Add to cart<img src='carticons.png' height='20px'></a>
                         </div>
                     </div>
                 </div>

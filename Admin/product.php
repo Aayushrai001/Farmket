@@ -53,17 +53,64 @@
             background-color: #ccc; /* Style the active menu item */
         }
 
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: black;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: white;
+            color: black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
     <h1>Admin Dashboard</h1>
     <div class="sidebar">
-    <ul>
-        <li><a href="insert_category.php">Insert Category</a></li>
-        <li><a href="delete_farmer.php">Delete Farmer</a></li>
-        <li><a href="product.php">Product</a></li>
-        <li><a href="../Includes/logout.php">Log Out</a></li>
-    </ul>
-</div>
+        <ul>
+            <li><a href="insert_category.php">Insert Category</a></li>
+            <li><a href="delete_farmer.php">Delete Farmer</a></li>
+            <li><a href="product.php">Product</a></li>
+            <li><a href="../Includes/logout.php">Log Out</a></li>
+        </ul>
+    </div>
 </body>
 </html>

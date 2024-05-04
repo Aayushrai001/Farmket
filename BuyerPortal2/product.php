@@ -511,7 +511,7 @@ include("../Functions/functions.php");
         <div class="row">
             <?php
             cart();
-            getProduct();
+            getProducts();
             ?>
         </div>
         <br><br>

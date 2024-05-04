@@ -235,25 +235,36 @@ session_start();
     </style>
 </head>
 <body>
-
     <main class="my-form">
+          <!-- Main content area -->
         <div class="container">
+             <!-- Container to hold the form -->
             <div class="row justify-content-center">
+                 <!-- Center the form horizontally -->
                 <div class="col-md-8">
+                     <!-- Bootstrap grid column -->
                     <div class="card">
+                         <!-- Card for styling -->
                         <div class="card-header border border-dark" style="background-color:#292b2c">
+                         <!-- Header section of the card -->
                             <h4 style="font-style:bold;color:goldenrod;text-align:left">Login</h4>
+                             <!-- Login title -->
                         </div>
                         <div class="card-body border border-dark">
+                             <!-- Body section of the card -->
                             <form name="my-form" action="BuyerLogin.php" method="post">
-
+                                   <!-- Login form -->
                                 <div class="form-group row">
+                                     <!-- Form group for phone number input -->
                                     <label for="phone_number" class="col-md-4 col-form-label text-md-right  "><b><i class="fas fa-phone-alt mr-2"></i>Phone Number</b></label>
+                                       <!-- Label for phone number -->
                                     <div class="col-md-6">
+                                          <!-- Bootstrap grid column for input -->
                                         <input type="text" id="phone_number" class="form-control border border-dark" name="phonenumber" placeholder="Phone Number" required>
+                                          <!-- Phone number input field -->
                                     </div>
                                 </div>
-
+                                   <!-- End of phone number form group -->
                                 <div class="form-group row">
                                     <label for="p1" class="col-md-4 col-form-label text-md-right"><b><i class="fas fa-lock mr-2"></i>Password</b></label>
                                     <div class="col-md-6">
@@ -279,39 +290,42 @@ session_start();
             </div>
         </div>
     </main>
-
 </body>
-
 </html>
-
 <?php
+// Including the database connection file
 include("../Includes/db.php");
 
+// Checking if the login form is submitted
 if (isset($_POST['login'])) {
-
+    // Escaping special characters to prevent SQL injection
     $phonenumber = mysqli_real_escape_string($con, $_POST['phonenumber']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    // Check if the entered credentials match the specific phone number and password
+    // Checking if the entered credentials match the predefined admin credentials
     if ($phonenumber == '9825315733' && $password == 'aayush@147') {
-        // Redirect to admin_dashboard.php
+        // Redirecting to the admin dashboard if admin credentials match
         echo "<script>window.open('../Admin/admindash.php', '_self')</script>";
         exit; // Stop further execution
     }
 
-    // Proceed with regular login validation for other users
+    // Proceeding with regular login validation for other users
     $query = "SELECT * FROM buyerregistration WHERE buyer_phone = '$phonenumber' AND buyer_password = '$password'";
     $run_query = mysqli_query($con, $query);
     $count_rows = mysqli_num_rows($run_query);
+
+    // If no matching user found, display an alert and redirect to the login page
     if ($count_rows == 0) {
         echo "<script>alert('Please Enter Valid Details');</script>";
         echo "<script>window.open('BuyerLogin.php','_self')</script>";
     }
+
+    // If user credentials are valid, set session variable and redirect to buyer portal
     while ($row = mysqli_fetch_array($run_query)) {
         $id = $row['buyer_id'];
     }
     $_SESSION['phonenumber'] = $phonenumber;
     echo "<script>window.open('../BuyerPortal2/bhome.php','_self')</script>";
 }
-
 ?>
+

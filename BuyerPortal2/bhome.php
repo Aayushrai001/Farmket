@@ -63,6 +63,7 @@ include("../Functions/functions.php");
 
         }
     </script>
+    <!-- css code -->
     <style>
         .myfooter {
             background-color: #292b2c;
@@ -360,21 +361,25 @@ include("../Functions/functions.php");
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-xl ">
-
+        <!-- Left side of the navbar -->
         <div class=" flex-row-reverse left ">
-
+            <!-- Cart icon -->
             <div class="p-2">
                 <div class="icon2">
                     <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
                     <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
                 </div>
             </div>
+              <!-- User profile icon -->
             <div class="p-2 ml-5"><i class='far fa-user-circle' style='font-size:30px; color: green;margin-top:2px;'></i></div>
+            <!-- Logo -->
             <a class="float-left" href="bhome.php">
                 <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
             </a>
         </div>
+           <!-- Navbar Toggler -->
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
         </button>
@@ -382,14 +387,16 @@ include("../Functions/functions.php");
             <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+                 <!-- Search bar -->
             <div class="input-group mb-1 ml-2 searchbox">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i></div>
+                 <!-- Search form -->
                 </div>
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
                     <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
+                   <!-- Navigation links -->
                     <a href="bhome.php" class="nav-link">Home</a>
                     <a href="product.php" class="nav-link">Product</a>
                     <a href="aboutus.php" class="nav-link">About Us</a>
@@ -454,46 +461,34 @@ include("../Functions/functions.php");
 
 
     <div class="container">
-        <div class="d-flex justify-content-around bg-white mb-3">
-
-            <div class="p-2 ">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Fruits
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getFruits();
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vegetables
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getVegetables();
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2 ">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Crops
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getCrops();
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex justify-content-around bg-white mb-3">
+    <div class="p-2">
+    <div class="dropdown">
+        <?php
+        $product_cat = 3; // Set the product category value for Crops
+        echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Fruits</a></button>";
+        ?>
     </div>
+</div>
+        <div class="p-2">
+    <div class="dropdown">
+        <?php
+        $product_cat = 2; // Set the product category value for Crops
+        echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Vegetable</a></button>";
+        ?>
+    </div>
+</div>
+                <div class="p-2">
+    <div class="dropdown">
+        <?php
+        $product_cat = 1; // Set the product category value for Crops
+        echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Crops</a></button>";
+        ?>
+    </div>
+</div>
+
+    </div>
+</div>
 
 
 
