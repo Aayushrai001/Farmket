@@ -414,8 +414,8 @@ include("../Functions/functions.php");
                 <div class="col aligncenter">
                     <br>
                     <h5>Payment Option</h5>
-                    <img src="../Images/Website/esewa.png" alt="paytm">
-                    <img src="../Images/Website/cod.jpg" alt="paytm" style="height:37px">
+                    <img src="../Images/Website/esewa.png" alt="esewa">
+                    <img src="../Images/Website/cod.jpg" alt="esewa" style="height:37px">
                 </div>
             </div>
             <div class="row">

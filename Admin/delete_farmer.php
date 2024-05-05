@@ -105,12 +105,13 @@
 <body>
     <h1>Admin Dashboard</h1>
     <div class="sidebar">
-        <ul>
-            <li><a href="insert_category.php">Insert Category</a></li>
-            <li><a href="delete_farmer.php">Delete Farmer</a></li>
-            <li><a href="product.php">Product</a></li>
-            <li><a href="../Includes/logout.php">Log Out</a></li>
-        </ul>
+    <ul>
+        <li><a href="insert_category.php">Insert Category</a></li>
+        <li><a href="delete_farmer.php">Delete Farmer</a></li>
+        <li><a href="product.php">Product</a></li>
+        <li><a href="orders.php">Orders</a></li>
+        <li><a href="../Includes/logout.php">Log Out</a></li>
+    </ul>
     </div>
 
     <div class="container">

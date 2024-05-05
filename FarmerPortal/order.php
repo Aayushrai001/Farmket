@@ -10,7 +10,7 @@
      <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <title>Farmer - Products</title>
+     <title>Farmer - Transaction</title>
      <!-- <link rel="stylesheet" href="portal_files/font-awesome.min.css"> -->
      <!-- <script src="../portal_files/c587fc1763.js.download" crossorigin="anonymous"></script> -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -207,7 +207,7 @@
                margin-right: 20px;
           }
 
-          .esewa {
+          .paytm {
                float: left;
           }
 
@@ -451,7 +451,6 @@
                height: auto;
           }
 
-          /* 
           .productbox {
                float: left;
                margin: 15px;
@@ -461,9 +460,9 @@
                border: 2px solid;
                border-color: green;
                border-radius: 10px;
-          } */
+          }
 
-          /* .productbox:hover {
+          .productbox:hover {
                float: left;
                margin: 25px;
                margin-left: 30px;
@@ -476,7 +475,7 @@
                height: 325px;
                width: 240px;
 
-          } */
+          }
 
           .slideshow {
                margin-top: 10px;
@@ -782,7 +781,7 @@
 
           }
 
-          th {
+          /* th {
                border-color: white;
                border-style: solid;
                border-width: 2px;
@@ -804,56 +803,39 @@
 
           .trow {
                align-content: center;
+          } */
+
+          body {
+               margin: 0;
+               padding: 0px;
+               font-family: sans-serif;
           }
 
-          .products {
-               margin-left: 9%;
-
+          * {
+               box-sizing: border-box;
           }
 
-          .productbox {
-               float: left;
-               margin: 15px;
-               /* margin-left: 30px; */
-               padding: 15px;
-               border-style: outline;
-               border: 2px solid;
-               border-color: green;
-               border-radius: 10px;
+          .table {
+               width: 100%;
+               border-collapse: collapse;
           }
 
-          .productbox img {
-               height: 200px;
-               width: 250px;
-               border-style: double;
-               border: 2px solid;
-               border-color: brown;
-               border-width: 2px;
-               border-radius: 10px;
-          }
-
-          .productbox p {
+          .table td,
+          .table th {
+               padding: 12px 15px;
+               border: 0px solid #ddd;
                text-align: center;
-               text-decoration: underline;
+               font-size: 16px;
           }
 
-          .productbox img:hover {
-               height: 200px;
-               width: 250px;
-               border-style: double;
-               border: 2px solid;
-               border-color: brown;
-               border-width: 2px;
-               border-radius: 10px;
+          .table th {
+               background-color: #292b2c;
+               color: goldenrod;
           }
 
-          .productbox p:hover {
-               text-align: center;
-               text-decoration: underline;
-
+          .table tbody tr:nth-child(even) {
+               background-color: #f5f5f5;
           }
-
-
 
           /* For medium devices (e.g. tablets) */
           /* @media (min-width: 420px) {
@@ -894,10 +876,40 @@
                     background-color: #ff5500;
                }
 
-               /* 
-           .settings{
-           margin-left:79%;
-       } */
+               .table thead {
+                    display: none;
+               }
+
+               .table,
+               .table tbody,
+               .table tr,
+               .table td {
+                    display: block;
+                    width: 100%;
+               }
+
+               .table tr {
+                    margin-bottom: 15px;
+               }
+
+               .table td {
+                    text-align: right;
+                    padding-left: 50%;
+                    text-align: right;
+                    position: relative;
+               }
+
+               .table td::before {
+                    content: attr(data-label);
+                    position: absolute;
+                    left: 0;
+                    width: 50%;
+                    padding-left: 15px;
+                    font-size: 15px;
+                    font-weight: bold;
+                    text-align: left;
+               }
+
                .left {
                     display: flex;
                }
@@ -1000,43 +1012,76 @@
 
           <br>
 
+          <div style="display:block;">
 
-          <div class=content_item>
-               <label style="font-size :30px; text-shadow: 1px 1px 1px gray;"><b>All Products</b></label>
-               <?php
-               include("../Includes/db.php");
-               if (isset($_SESSION['phonenumber'])) {
-
-                    echo "<a href='InsertProduct.php'>
-                    <button class='btn btn-warning btn-lg p-3 m-3 font-weight-bold'>Add New Product <i class='fas fa-plus-square p-2 fa-1x'></i>
-                    </button>
-                    </a>";
-               } else {
-                    echo "<a href='../auth/FarmerLogin.php'>
-                    <button class='btn btn-warning btn-lg p-3 m-3 font-weight-bold'>Add New Product <i class='fas fa-plus-square p-2 fa-1x'></i>
-                    </button>
-                    </a>";
-               }
-               ?>
-
+               <div class=content_item><label style="font-size :30px; text-shadow: 1px 1px 1px gray;"><b>Orders</b></label></div>
+               <br>
           </div>
 
-          <br>
-          <main>
-               <div class="products">
-                    <?php
-                    include("../Includes/db.php");
-                    if (isset($_SESSION['phonenumber'])) {
-                         $sess_phone_number = $_SESSION['phonenumber'];
-                         getFarmerProducts();
-                    } else {
-                         echo "<br><br><h1 align = center>Please Login!</h1><br><br><hr>";
-                    }
-                    ?>
-               </div>
-               <br> <br>
-               <hr>
-          </main>
+
+          <div class="container">
+
+               <table class="table">
+                    <thead>
+                         <th>Product Name</th>
+                         <th>Name</th>
+                         <th>Phone Number</th>
+                         <th>Delivery Address</th>
+                         <th>Quantity</th>
+                         <th>Amount</th>
+                    </thead>
+
+
+                    <tbody>
+                         <?php
+
+                         global $con;
+                         if (isset($_SESSION['phonenumber'])) {
+                              $sess_phone_number = $_SESSION['phonenumber'];
+                              $sel_price = "select * from orders where phonenumber = '$sess_phone_number'";
+                              $run_price = mysqli_query($con, $sel_price);
+                              $i = 0;
+
+                              while ($p_price = mysqli_fetch_array($run_price)) {
+                                   $product_id = $p_price['product_id'];
+                                   $qty = $p_price['qty'];
+                                   $total = $p_price['total'];
+                                   $address = $p_price['address'];
+                                   $phone = $p_price['buyer_phonenumber'];
+
+
+                                   $pro_price = "select * from products where product_id='$product_id'";
+                                   $run_pro_price = mysqli_query($con, $pro_price);
+                                   while ($pp_price = mysqli_fetch_array($run_pro_price)) {
+                                        $product_title = $pp_price['product_title'];
+
+
+                                        $query_name = "select * from buyerregistration where buyer_phone = $phone";
+                                        $run_query_name = mysqli_query($con, $query_name);
+                                        while ($names = mysqli_fetch_array($run_query_name)) {
+                                             $buyer_name = $names['buyer_name'];
+
+
+                         ?>
+                                             <tr>
+                                                  <td data-label="Product Name"><?php echo $product_title; ?></td>
+                                                  <td data-label="Name"><?php echo $buyer_name; ?></td>
+                                                  <td data-label="Phone Number"><?php echo $phone; ?></td>
+                                                  <td data-label="Address"><?php echo $address; ?></td>
+                                                  <td data-label="Quantity"><?php echo $qty; ?></td>
+                                                  <td data-label="Price"><?php echo $total; ?></td>
+                                             </tr>
+                    </tbody>
+<?php
+                                        }
+                                   }
+                                   $i++;
+                              }
+                         } else {
+                              echo "<h1 align = center>Please Login First!</h1><br><br><hr>";
+                         } ?>
+               </table>
+          </div> <br> <br>
 
           <section id="footer" class="myfooter">
                <div class="container">
@@ -1063,7 +1108,7 @@
                     <div class="row">
                          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
                               <p><u><a href="https://www.farmketcraft.com/">farmketCraft Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
-                              <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.google.com" target="_blank">farmkettech</a></p>
+                              <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.farmket.com" target="_blank">farmkettech</a></p>
                          </div>
                          </hr>
                     </div>

@@ -985,35 +985,34 @@
           </nav>
           <br>
           <div class="row" style="text-align:center;">
-                <div class="col-md-2 col-sm-12">
+                <div class="col-md-1 col-sm-12">
                      <a href="farmerHomepage.php" id="navbar"><label>Home</label></a>
                 </div>
-                <div class="col-md-2 col-sm-12">
+                <div class="col-md-1 col-sm-12">
                      <a href="farmerprofile2.php" id="navbar"><label>Profile</label></a>
                 </div>
                 <div class="col-md-2 col-sm-12">
-                     <a href="MyProducts.php" id="navbar"><label>My Products</label></a>
+                     <a href="MyProducts.php" id="navbar"><label>Products</label></a>
                 </div>
-                <div class="col-md-3 col-sm-12">
-                     <a href="Transactions.php" id="navbar"><label>My Transactions</label></a>
+                <div class="col-md-2 col-sm-12">
+                     <a href="Transactions.php" id="navbar"><label>Transactions</label></a>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                     <a href="order.php" id="navbar"><label>Order</label></a>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                     <a href="Notification.php" id="navbar"><label>Notification</label></a>
                 </div>
                 <div class="col-md-2 col-sm-12">
                      <a href="../Includes/logout.php" id="navbar"><label>Log Out</label></a>
                 </div>
            </div>
-          </div>
           <hr>
-
-
           <br>
-
           <div style="display:block;">
-
                <div class=content_item><label style="font-size :30px; text-shadow: 1px 1px 1px gray;"><b>TRANSACTION HISTORY</b></label></div>
                <br>
-          </div>
-
-
+     </div>
           <div class="container">
 
                <table class="table">
@@ -1024,59 +1023,53 @@
                          <th>Delivery Address</th>
                          <th>Quantity</th>
                          <th>Amount</th>
+                         <th>Payment</th>
                     </thead>
-
-
                     <tbody>
-                         <?php
+                    <?php
+            global $con;
+            if (isset($_SESSION['phonenumber'])) {
+                $sess_phone_number = $_SESSION['phonenumber'];
+                $sel_price = "SELECT * FROM orders WHERE phonenumber = '$sess_phone_number'";
+                $run_price = mysqli_query($con, $sel_price);
+                $i = 0;
 
-                         global $con;
-                         if (isset($_SESSION['phonenumber'])) {
-                              $sess_phone_number = $_SESSION['phonenumber'];
-                              $sel_price = "select * from orders where phonenumber = '$sess_phone_number'";
-                              $run_price = mysqli_query($con, $sel_price);
-                              $i = 0;
+                while ($p_price = mysqli_fetch_array($run_price)) {
+                    $product_id = $p_price['product_id'];
+                    $qty = $p_price['qty'];
+                    $total = $p_price['total'];
+                    $address = $p_price['address'];
+                    $phone = $p_price['buyer_phonenumber'];
+                    $payment = $p_price['payment']; // Added payment variable
 
-                              while ($p_price = mysqli_fetch_array($run_price)) {
-                                   $product_id = $p_price['product_id'];
-                                   $qty = $p_price['qty'];
-                                   $total = $p_price['total'];
-                                   $address = $p_price['address'];
-                                   $phone = $p_price['buyer_phonenumber'];
+                    $pro_price = "SELECT * FROM products WHERE product_id='$product_id'";
+                    $run_pro_price = mysqli_query($con, $pro_price);
+                    while ($pp_price = mysqli_fetch_array($run_pro_price)) {
+                        $product_title = $pp_price['product_title'];
 
-
-                                   $pro_price = "select * from products where product_id='$product_id'";
-                                   $run_pro_price = mysqli_query($con, $pro_price);
-                                   while ($pp_price = mysqli_fetch_array($run_pro_price)) {
-                                        $product_title = $pp_price['product_title'];
-
-
-                                        $query_name = "select * from buyerregistration where buyer_phone = $phone";
-                                        $run_query_name = mysqli_query($con, $query_name);
-                                        while ($names = mysqli_fetch_array($run_query_name)) {
-                                             $buyer_name = $names['buyer_name'];
-
-
-                         ?>
-                                             <tr>
-                                                  <td data-label="Product Name"><?php echo $product_title; ?></td>
-                                                  <td data-label="Name"><?php echo $buyer_name; ?></td>
-                                                  <td data-label="Phone Number"><?php echo $phone; ?></td>
-                                                  <td data-label="Address"><?php echo $address; ?></td>
-                                                  <td data-label="Quantity"><?php echo $qty; ?></td>
-                                                  <td data-label="Price"><?php echo $total; ?></td>
-                                             </tr>
-
-
-                    </tbody>
-<?php
-                                        }
-                                   }
-                                   $i++;
-                              }
-                         } else {
-                              echo "<h1 align = center>Please Login First!</h1><br><br><hr>";
-                         } ?>
+                        $query_name = "SELECT * FROM buyerregistration WHERE buyer_phone = '$phone'";
+                        $run_query_name = mysqli_query($con, $query_name);
+                        while ($names = mysqli_fetch_array($run_query_name)) {
+                            $buyer_name = $names['buyer_name'];
+            ?>
+                            <tr>
+                                <td data-label="Product Name"><?php echo $product_title; ?></td>
+                                <td data-label="Name"><?php echo $buyer_name; ?></td>
+                                <td data-label="Phone Number"><?php echo $phone; ?></td>
+                                <td data-label="Address"><?php echo $address; ?></td>
+                                <td data-label="Quantity"><?php echo $qty; ?></td>
+                                <td data-label="Price"><?php echo $total; ?></td>
+                                <td data-label="Payment"><?php echo $payment; ?></td> <!-- Display Payment -->
+                            </tr>
+            <?php
+                        }
+                    }
+                    $i++;
+                }
+            } else {
+                echo "<h1 align = center>Please Login First!</h1><br><br><hr>";
+            }
+            ?>
                </table>
           </div> <br> <br>
 

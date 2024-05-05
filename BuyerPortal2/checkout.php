@@ -484,14 +484,13 @@ include("../Functions/functions.php");
             <hr style="margin-top:-0.5%">
 
             <div class="payment">
-                <h4>Payment Options :-
-                    <input type="radio" aria-label="Radio button for following text input" name="payment" value="paytm" required>
-                    <img src="../Images/Website/esewa.png" alt="paytm" class="paytm">
-                    <input type="radio" aria-label="Radio button for following text input" name="payment" value="cod" required>
-                    <img src="../Images/Website/cod.jpg" alt="paytm" class="cod" style="height:37px">
-                </h4>
-            </div>
-
+    <h4>Payment Options :-
+        <input type="radio" aria-label="Radio button for following text input" name="payment" value="esewa" required>
+        <img src="../Images/Website/esewa.png" alt="esewa" class="esewa">
+        <input type="radio" aria-label="Radio button for following text input" name="payment" value="cod" required>
+        <img src="../Images/Website/cod.jpg" alt="cod" class="cod" style="height:37px">
+    </h4>
+</div>
             <div class="float-none float-sm-none float-md-none float-lg-right float-xl-right placeorder">
                 <a href="#"><button type="submit" name="submit" class="btn btn-lg  border border-dark " style="font-size:22px;color:black;background-color:#FFD700">
                         Place Order
@@ -509,9 +508,6 @@ include("../Functions/functions.php");
                 <i class="fas fa-arrow-left"></i> Go Back </button></a>
     </div>
     </div>
-
-
-
     <br>
     <br>
     <section id="footer" class="myfooter">
@@ -520,8 +516,8 @@ include("../Functions/functions.php");
                 <div class="col aligncenter">
                     <br>
                     <h4>Payment Option</h4>
-                    <img src="../Images/Website/esewa.png" alt="paytm">
-                    <img src="../Images/Website/cod.jpg" alt="paytm" style="height:37px">
+                    <img src="../Images/Website/esewa.png" alt="esewa">
+                    <img src="../Images/Website/cod.jpg" alt="esewa" style="height:37px">
                 </div>
             </div>
             <div class="row">

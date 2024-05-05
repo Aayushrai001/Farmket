@@ -458,47 +458,31 @@ include("../Functions/functions.php");
 
 
     <div class="container">
-        <div class="d-flex justify-content-around bg-white mb-3">
-
-            <div class="p-2 ">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Fruits
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getFruits();
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vegetables
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getVegetables();
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="p-2 ">
-                <div class="dropdown">
-                    <button class="btn btn-green mybtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Crops
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <?php
-                        getCrops();
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex justify-content-around bg-white mb-3">
+    <div class="p-2">
+    <div class="dropdown">
+        <?php
+        getFruits();
+        ?>
     </div>
+</div>
+        <div class="p-2">
+    <div class="dropdown">
+        <?php
+        getVegetables();
+        ?>
+    </div>
+</div>
+                <div class="p-2">
+    <div class="dropdown">
+        <?php
+        getCrops();
+        ?>
+    </div>
+</div>
 
+    </div>
+</div>
 
 
     <div class="container">

@@ -198,14 +198,20 @@ if (isset($_POST['insert_pro'])) {    // when button is clicked
         $run = mysqli_query($con, $getting_id);
         $row = mysqli_fetch_array($run);
         $id = $row['farmer_id'];
-        $insert_product = "insert into products (farmer_fk,product_title, product_cat, 
-                                product_type,product_expiry,product_image, product_stock, product_price,
-                                product_desc,  product_keywords, product_delivery) 
-                                values ('$id','$product_title','$product_cat','$product_type','$product_expiry','$product_image','$product_stock',
-                                        '$product_price','$product_desc',
-                                        '$product_keywords','$product_delivery')";
-        $insert_query = mysqli_query($con, $insert_product);
-        echo $insert_product;
+        $current_date = date('Y-m-d'); // Get current date in YYYY-MM-DD format
+        $state = "Unapproved"; // Set state as "Unapproved"
+
+        // Use prepared statement to avoid SQL injection
+        $insert_product = $con->prepare("insert into products (farmer_fk, product_title, product_cat, 
+                                product_type, product_expiry, product_image, product_stock, product_price,
+                                product_desc, product_keywords, product_delivery, date, state) 
+                                values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $insert_product->bind_param("isssssissssss", $id, $product_title, $product_cat, 
+                                    $product_type, $product_expiry, $product_image, $product_stock,
+                                    $product_price, $product_desc, $product_keywords, $product_delivery,
+                                    $current_date, $state);
+        $insert_query = $insert_product->execute();
+
         if ($insert_query) {
             echo "<script>alert('Product has been added')</script>";
             echo "<script>window.open('farmerHomepage.php','_self')</script>";
