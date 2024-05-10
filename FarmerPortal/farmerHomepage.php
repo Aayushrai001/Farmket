@@ -881,10 +881,10 @@
            </nav>
            <br>
            <div class="row" style="text-align:center;">
-                <div class="col-md-1 col-sm-12">
+                <div class="col-md-2 col-sm-12">
                      <a href="farmerHomepage.php" id="navbar"><label>Home</label></a>
                 </div>
-                <div class="col-md-1 col-sm-12">
+                <div class="col-md-2 col-sm-12">
                      <a href="farmerprofile2.php" id="navbar"><label>Profile</label></a>
                 </div>
                 <div class="col-md-2 col-sm-12">
@@ -895,9 +895,6 @@
                 </div>
                 <div class="col-md-2 col-sm-12">
                      <a href="order.php" id="navbar"><label>Order</label></a>
-                </div>
-                <div class="col-md-2 col-sm-12">
-                     <a href="Notification.php" id="navbar"><label>Notification</label></a>
                 </div>
                 <div class="col-md-2 col-sm-12">
                      <a href="../Includes/logout.php" id="navbar"><label>Log Out</label></a>

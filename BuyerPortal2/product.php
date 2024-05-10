@@ -1,5 +1,5 @@
 <?php
-include("../Functions/functions.php");
+include ("../Functions/functions.php");
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ include("../Functions/functions.php");
                 array = ['Achham', 'Baitadi', 'Bajhang', 'Bajura', 'Dadeldhura', 'Darchula', 'Doti', 'Kailali', 'Kanchanpur'];
             }
 
-           
+
             var string = "";
             for (let i = 0; i < array.length; i++) {
                 string = string + "<option>" + array[i] + "</option>";
@@ -249,6 +249,7 @@ include("../Functions/functions.php");
                 text-align: center;
                 width: 100%;
             }
+
             .guard {
                 /* width: 100%; */
                 text-align: center;
@@ -265,6 +266,7 @@ include("../Functions/functions.php");
                 padding: 0 10px;
             }
         }
+
         /* Image Grig */
 
 
@@ -320,7 +322,7 @@ include("../Functions/functions.php");
         a {
             color: goldenrod;
         }
-        
+
 
         #headings {
             /* text-shadow: 2px 1px #666666; */
@@ -362,6 +364,7 @@ include("../Functions/functions.php");
         } */
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-xl ">
 
@@ -369,17 +372,21 @@ include("../Functions/functions.php");
 
             <div class="p-2">
                 <div class="icon2">
-                    <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
+                    <a href="CartPage.php"> <i class="fa"
+                            style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
                     <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
                 </div>
             </div>
-            <div class="p-2 ml-5"><i class='far fa-user-circle' style='font-size:30px; color: green;margin-top:2px;'></i></div>
+            <div class="p-2 ml-5"><i class='far fa-user-circle'
+                    style='font-size:30px; color: green;margin-top:2px;'></i></div>
             <a class="float-left" href="bhome.php">
                 <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
             </a>
         </div>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 "
+                    style="color:green;margin-right:-9%;font-size:28px;"></i></span>
         </button>
         <a class="float-left" href="bhome.php">
             <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
@@ -388,41 +395,37 @@ include("../Functions/functions.php");
 
             <div class="input-group mb-1 ml-2 searchbox">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i></div>
+                    <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i>
+                    </div>
                 </div>
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
-                    <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
+                    <input type="text" class="form-control " id="inlineFormInputGroup" name="search"
+                        placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
-                    <a href="bhome.php" class="nav-link">Home</a>
-                    <a href="product.php" class="nav-link">Product</a>
-                    <a href="aboutus.php" class="nav-link">About Us</a>
-            </div>
-            </div>
-            </div>
-            <?php
-            getUsername();
-            ?>
-            <div class="list-group moblists">
-
-                <?php
-                if (isset($_SESSION['phonenumber'])) {
-                    echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
-                    echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
-                    echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
-                    echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
-                    echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
-                } else {
-                    echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
-                    echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login as Seller</a>";
-                }
-                ?>
-
+                <a href="bhome.php" class="nav-link">Home</a>
+                <a href="product.php" class="nav-link">Product</a>
+                <a href="aboutus.php" class="nav-link">About Us</a>
             </div>
         </div>
+        </div>
+        <?php
+        getUsername();
+        ?>
+        <div class="list-group moblists">
 
+            <?php
+            if (isset($_SESSION['phonenumber'])) {
+                echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
+                echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
+                echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
+            } else {
+                echo "<a href='../auth/login.html' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
 
+            }
+            ?>
 
-
+        </div>
+        </div>
         <div class=" flex-row-reverse right ">
             <div class="p-2 cart">
                 <div class="icon2">
@@ -431,7 +434,8 @@ include("../Functions/functions.php");
                 </div>
             </div>
             <div class="dropdown p-2 settings ">
-                <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Settings
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -439,54 +443,37 @@ include("../Functions/functions.php");
                     if (isset($_SESSION['phonenumber'])) {
                         echo "<a href='BuyerProfileDetails.php' class='dropdown-item  ' style='padding-right:-20px;'>Profile</a>";
                         echo "<a href='Transaction.php' class='dropdown-item ' style='padding-right:-20px;'>Transactions</a>";
-                        echo "<a href='../auth/FarmerLogin.php' class='dropdown-item ' style='padding-right:-20px;'>Become Seller</a>";
                         echo "<a href='../Includes/logout.php' class='dropdown-item ' style='padding-right:-20px;'>Logout</a>";
                     } else {
-                        echo "<a href='../auth/BuyerLogin.php' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
-                        echo "<a href='../auth/FarmerLogin.php' class='dropdown-item ' style='padding-right:-20px;'>Login as Seller</a>";
-                        
+                        echo "<a href='../auth/login.html' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
                     }
                     ?>
                 </div>
             </div>
-
-
             <div class="text-success  login">Login</div>
         </div>
-
     </nav>
-
-
     <div class="container">
-    <div class="d-flex justify-content-around bg-white mb-3">
-    <div class="p-2">
-    <div class="dropdown">
-        <?php
-        getFruits();
-        ?>
+        <div class="heading">
+            <h2 class="text-center">Category</h2>
+        </div>
+        <div class="d-flex justify-content-around bg-white mb-3">
+            <?php
+            $select_category = "SELECT * FROM `categories`";
+            $result_category = mysqli_query($con, $select_category);
+            while ($row_category = mysqli_fetch_assoc($result_category)) {
+                $category_title = $row_category['cat_title'];
+                $category_id = $row_category['cat_id'];
+                echo "<div class='p-2'>";
+                echo "<div class='dropdown'>";
+                echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$category_id'>$category_title</a></button>";
+                echo "</div>";
+                echo "</div>";
+            }
+            ?>
+        </div>
     </div>
-</div>
-        <div class="p-2">
-    <div class="dropdown">
-        <?php
-        getVegetables();
-        ?>
-    </div>
-</div>
-                <div class="p-2">
-    <div class="dropdown">
-        <?php
-        getCrops();
-        ?>
-    </div>
-</div>
-
-    </div>
-</div>
-
-
     <div class="container">
-
         <div class="text-center">
             <h1 id="headings" class="longguard"><span><b>Best Selling Products All Over Nepal</b></span>
             </h1>
@@ -499,13 +486,8 @@ include("../Functions/functions.php");
             ?>
         </div>
         <br><br>
-
-
     </div>
     </div>
-
-
-
     <!-- footer -->
     <section id="footer" class="myfooter">
         <div class="container">
@@ -520,25 +502,30 @@ include("../Functions/functions.php");
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a>
+                        </li>
                         <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i
+                                    class="fa fa-envelope"></i></a></li>
                     </ul>
                 </div>
                 </hr>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-                    <p><u><a href="https://www.Farmket.com/">Farmket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
-                    <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.farmket.com" target="_blank">farmket</a></p>
+                    <p><u><a href="https://www.Farmket.com/">Farmket Corporation</a></u> is a Multitrading Company for
+                        farmers ang traders</p>
+                    <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.farmket.com"
+                            target="_blank">farmket</a></p>
                 </div>
                 </hr>
             </div>
         </div>
     </section>
-    <!-- ./Footer a ,myfooter,aligncenter-->
 </body>
 
 </html>

@@ -1,23 +1,15 @@
 <?php
-    include("../Includes/db.php");
-    session_start();
-    $sessphonenumber = $_SESSION['phonenumber'];
-    $sql="select * from buyerregistration where buyer_phone = '$sessphonenumber'";
-    $run_query = mysqli_query($con,$sql);
-    while($row = mysqli_fetch_array($run_query))
-    {
-        $name = $row['buyer_name'];
-        $phone = $row['buyer_phone'];
-        $address = $row['buyer_addr'];
-        $pan = $row['buyer_pan'];
-        $bank = $row['buyer_bank'];
-
-        $comp = $row['buyer_comp'];
-        $license = $row['buyer_license'];
-        $mail = $row['buyer_mail'];
-        $user = $row['buyer_username'];
-    }   
-
+include ("../Includes/db.php");
+session_start();
+$sessphonenumber = $_SESSION['phonenumber'];
+$sql = "select * from buyerregistration where buyer_phone = '$sessphonenumber'";
+$run_query = mysqli_query($con, $sql);
+while ($row = mysqli_fetch_array($run_query)) {
+    $name = $row['buyer_name'];
+    $phone = $row['buyer_phone'];
+    $address = $row['buyer_addr'];
+    $mail = $row['buyer_mail'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,28 +29,31 @@
     <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
 </head>
 <style>
-    #staticEmail{
-        text-align:center;
-         border-style:solid;
-        border-color:black;
+    #staticEmail {
+        text-align: center;
+        border-style: solid;
+        border-color: black;
         /* background-color:#ff5500;*/
-        width:30%;
-        font-size:20px;
-        color:black; 
-    } 
+        width: 30%;
+        font-size: 20px;
+        color: black;
+    }
+
     .text {
         background-color: black;
         color: gold;
-        font-size:18px;
+        font-size: 18px;
     }
-    input{
-        text-align:center;
+
+    input {
+        text-align: center;
         /* border-style:solid;
         border-color:black; */
-        background-color:#ff5500;
-        width:50%;
-        color:red;
+        background-color: #ff5500;
+        width: 50%;
+        color: red;
     }
+
     .myfooter {
         background-color: #292b2c;
 
@@ -176,7 +171,7 @@
         margin-top: 0%;
     }
 
-   
+
 
     h2,
     h1 {
@@ -191,9 +186,9 @@
         width: 50%;
         margin-left: 25%;
         margin-right: 25%;
-        margin-top:0%;
-        margin-bottom:4%;
-    
+        margin-top: 0%;
+        margin-bottom: 4%;
+
     }
 
     .fp {
@@ -331,7 +326,7 @@
             width: 100%;
         }
 
-    
+
         .x {
             padding: 0;
             width: 80%;
@@ -339,7 +334,7 @@
             margin-right: 10%;
         }
 
-   
+
         .s {
             width: 100%;
             margin-left: 0;
@@ -352,14 +347,14 @@
 
         .input-group-prepend {
             display: inline-block;
-       
+
         }
 
         .fp {
             margin-left: 0%;
             margin-top: -30%;
             text-align: center;
-         
+
         }
 
         .nu {
@@ -392,84 +387,69 @@
             text-decoration: none;
             color: #333;
         }
-      
+
         .text {
-        min-width: 150px !important;
-        display: inline-block !important
-    }
+            min-width: 150px !important;
+            display: inline-block !important
+        }
     }
 </style>
 
 <body>
     <div class="just">
-        <a  href="bhome.php"> <i  class="fa fa-home fa-4x"></i></a>
+        <a href="bhome.php"> <i class="fa fa-home fa-4x"></i></a>
     </div>
 
     <div class="container">
-    <div class="text-center">
-        <br>
-<br>
-        <b>
-            <h1 class="guard"><span><b>BUYER'S PROFILE</b></span>
-            </h1>
-        </b>
-        <br>
-    </div></div>
+        <div class="text-center">
+            <br>
+            <br>
+            <b>
+                <h1 class="guard"><span><b>BUYER'S PROFILE</b></span>
+                </h1>
+            </b>
+            <br>
+        </div>
+    </div>
 
-    <div class="container" >
+    <div class="container">
         <div class="form">
             <div class="input-group mt-4 s">
                 <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="fas fa-user mr-2"></i>Full name</span>
+                    <span class="input-group-text text  " id="inputGroup-sizing-default"><i
+                            class="fas fa-user mr-2"></i>Full name</span>
                 </div>
-                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail" value="<?php echo $name?>">
+                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail"
+                    value="<?php echo $name ?>">
             </div>
             <div class="input-group mt-4 s">
                 <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="fas fa-phone-alt mr-2"></i>Phone No.</span>
+                    <span class="input-group-text text  " id="inputGroup-sizing-default"><i
+                            class="fas fa-phone-alt mr-2"></i>Phone No.</span>
                 </div>
-                <input type="phonenumber" readonly class="form-control-plaintext border border-dark" id="staticEmail" value="<?php echo $phone ?>">
+                <input type="phonenumber" readonly class="form-control-plaintext border border-dark" id="staticEmail"
+                    value="<?php echo $phone ?>">
             </div>
             <div class="input-group mt-4 s">
                 <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="fas fa-home mr-2"></i>Address</span>
+                    <span class="input-group-text text  " id="inputGroup-sizing-default"><i
+                            class="fas fa-home mr-2"></i>Address</span>
                 </div>
-                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail" value="<?php echo $address ?>">
-            </div> 
+                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail"
+                    value="<?php echo $address ?>">
+            </div>
             <div class="input-group mt-4 s">
                 <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="fas fa-pencil-alt mr-2"></i>Pan No.</span>
+                    <span class="input-group-text text" id="inputGroup-sizing-default"><i
+                            class="far fa-envelope mr-2"></i>Email id </span>
                 </div>
-                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail" value=" <?php echo $pan ?> ">
-            </div> 
-            <div class="input-group mt-4 s">
-                <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="fas fa-university mr-2"></i>Account No.</span>
-                </div>
-                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail" value=" <?php echo $bank ?>">
-            </div> 
-            <div class="input-group mt-4 s">
-                <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="fas fa-building mr-2"></i>Company</span>
-                </div>
-                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail" value="<?php echo $comp ?>">
-            </div> 
-            <div class="input-group mt-4 s">
-                <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="fas fa-id-badge mr-2"></i>License</span>
-                </div>
-                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail" value=" <?php echo $license?>">
-            </div> 
-            <div class="input-group mt-4 s">
-                <div class="input-group-prepend ">
-                    <span class="input-group-text text  " id="inputGroup-sizing-default" ><i class="far fa-envelope mr-2"></i>Email id </span>
-                </div>
-                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail" value="<?php echo $mail?> ">
-            </div> 
+                <input type="text" readonly class="form-control-plaintext border border-dark" id="staticEmail"
+                    value="<?php echo $mail ?> ">
+            </div>
             <div>
-    <button type="button" class="btn text-center d-flex mx-auto btn-lg" style="background-color:#292b2c;color:goldenrod" onclick="window.location.href = 'BuyerEditProfile.php';">Edit Profile</button>
-</div>
-    
+                <button type="button" class="btn text-center d-flex mx-auto btn-lg"
+                    style="background-color:#292b2c;color:goldenrod"
+                    onclick="window.location.href = 'BuyerEditProfile.php';">Edit Profile</button>
+            </div>
 </body>
-
 </html>

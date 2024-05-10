@@ -8,12 +8,8 @@
     while($row = mysqli_fetch_array($run_query))
     {
         $name = $row['buyer_name'];
-        $pan = $row['buyer_pan'];
         $phone = $row['buyer_phone'];
         $address = $row['buyer_addr'];
-        $account= $row['buyer_bank']; 
-        $comp = $row['buyer_comp'];
-        $license = $row['buyer_license'];
         $mail = $row['buyer_mail'];
         $user = $row['buyer_username'];
     }
@@ -200,35 +196,6 @@
                 </tr>
 
                 <tr align = "center">
-                    <td>
-                        <label><b>Pan :</b></label>
-                    </td>
-                    <td>
-                        <textarea rows="2" column="20" disabled><?php echo $pan;?></textarea><br>
-                    </td>
-                </tr>
-
-                <tr align = "center">
-                    <div class="in-icons">
-                    <td>
-                        <label><b>Company :</b></label>
-                    </td>
-                    <td>
-                        <textarea rows="2" column="18" value="" disabled><?php echo $comp;?></textarea><br>
-                    </td>
-                </tr>
-
-                <tr align = "center">
-                    <div class="in-icons">
-                    <td>
-                        <label><b>License :</b></label>
-                    </td>
-                    <td>
-                        <textarea rows="2" column="18" value="" disabled><?php echo $license;?></textarea><br>
-                    </td>
-                </tr>
-
-                <tr align = "center">
                     <div class="in-icons">
                     <td>
                         <label><b>Email ID :</b></label>
@@ -264,16 +231,6 @@
                     <td>
                         <input type="text" name="address" value="<?php echo $address;?> "/> <br>
                     </td>
-                </tr>
-
-                <tr align = "center">
-                    <td>
-                    <label><b>Bank :</b></label>
-                    </td>
-                    <td>
-                        <input type="number" name="bank" value="<?php echo $account; ?>" />  <br> 
-                    </td>
-                    <span style=" display:block;  margin-bottom: .75em; "></span>
                 </tr>
 
                 <tr colspan =2 align = "center">

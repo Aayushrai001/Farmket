@@ -1,6 +1,6 @@
 <?php
 
-include("../Functions/functions.php");
+include ("../Functions/functions.php");
 ?>
 
 
@@ -325,23 +325,25 @@ include("../Functions/functions.php");
 </style>
 
 <body>
-<nav class="navbar navbar-expand-xl ">
-
+    <nav class="navbar navbar-expand-xl ">
         <div class=" flex-row-reverse left ">
-
             <div class="p-2">
                 <div class="icon2">
-                    <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
+                    <a href="CartPage.php"> <i class="fa"
+                            style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
                     <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
                 </div>
             </div>
-            <div class="p-2 ml-5"><i class='far fa-user-circle' style='font-size:30px; color: green;margin-top:2px;'></i></div>
+            <div class="p-2 ml-5"><i class='far fa-user-circle'
+                    style='font-size:30px; color: green;margin-top:2px;'></i></div>
             <a class="float-left" href="bhome.php">
                 <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
             </a>
         </div>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 "
+                    style="color:green;margin-right:-9%;font-size:28px;"></i></span>
         </button>
         <a class="float-left" href="bhome.php">
             <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
@@ -350,10 +352,12 @@ include("../Functions/functions.php");
 
             <div class="input-group mb-1 ml-2 searchbox">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i></div>
+                    <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i>
+                    </div>
                 </div>
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
-                    <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
+                    <input type="text" class="form-control " id="inlineFormInputGroup" name="search"
+                        placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
                 <a href="bhome.php" class="nav-link">Home</a>
                 <a href="product.php" class="nav-link">Product</a>
@@ -363,26 +367,17 @@ include("../Functions/functions.php");
             getUsername();
             ?>
             <div class="list-group moblists">
-
                 <?php
                 if (isset($_SESSION['phonenumber'])) {
                     echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
                     echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
-                    echo "<a href='saveforlater.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Save For Later</a>";
-                    echo "<a href='#' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Subscriptions</a>";
-                    echo "<a href='farmer.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Farmers</a>";
                     echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
                 } else {
-                    echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
+                    echo "<a href='../auth/login.html' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
                 }
                 ?>
-
             </div>
         </div>
-
-
-
-
         <div class=" flex-row-reverse right ">
             <div class="p-2 cart">
                 <div class="icon2">
@@ -391,7 +386,8 @@ include("../Functions/functions.php");
                 </div>
             </div>
             <div class="dropdown p-2 settings ">
-                <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Settings
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -399,35 +395,27 @@ include("../Functions/functions.php");
                     if (isset($_SESSION['phonenumber'])) {
                         echo "<a href='BuyerProfileDetails.php' class='dropdown-item  ' style='padding-right:-20px;'>Profile</a>";
                         echo "<a href='Transaction.php' class='dropdown-item ' style='padding-right:-20px;'>Transactions</a>";
-                        echo "<a href='../auth/FarmerLogin.php' class='dropdown-item'  style='padding-right:-20px;'>Become Seller</a>";
                         echo "<a href='../Includes/logout.php' class='dropdown-item ' style='padding-right:-20px;'>Logout</a>";
                     } else {
-                        echo "<a href='../auth/BuyerLogin.php' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
+                        echo "<a href='../auth/login.html' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
                     }
                     ?>
                 </div>
             </div>
-
-
             <div class="text-success  login">Login</div>
         </div>
-
     </nav>
-
-
-
     <?php
-
     if (isset($_GET['id'])) {
         global $con;
-        $product_id  = $_GET['id'];
+        $product_id = $_GET['id'];
         $query = "select * from products where product_id = $product_id";
         $run_query = mysqli_query($con, $query);
         echo "<br>";
         while ($rows = mysqli_fetch_array($run_query)) {
             $farmer_fk = $rows['farmer_fk'];
             $product_title = $rows['product_title'];
-            $product_des=$rows['product_desc'];
+            $product_des = $rows['product_desc'];
             $product_image = $rows['product_image'];
             $product_price = $rows['product_price'];
             $product_stock = $rows['product_stock'];
@@ -445,17 +433,12 @@ include("../Functions/functions.php");
             while ($rows = mysqli_fetch_array($runa_query)) {
                 $state = $rows['farmer_state'];
                 $district = $rows['farmer_district'];
-
-
-                echo "
-                <div class='container'>
+                echo "<div class='container'>
                     <div class='text-center'>
                         <br>
                         <h1 id='headings' class='font-weight-bold'>$product_title</h1>
                     </div>
                     <br>
-
-
                     <div class='row'>
                         <div class='col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12   imageblock border border-dark'> <img src='../Admin/product_images/$product_image' class='d-flex mx-auto btn-dark image' height='290px;' width='380px;'><br>
                             <b>
@@ -464,15 +447,12 @@ include("../Functions/functions.php");
                                     <br>
                                 </div>
                             </b></div>
-
                         <div class='col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12 block border border-dark'>
                             <div class='text-center mt-2 ''>
-                            
                                 <br>
                                 <div class='row'>
                                     <div class='col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12 price'>
                                         <h5><b>Price : </b>$product_price /kg</h5>
-
                                     </div>
                                     <div class='col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12 stock'>
                                         <h5><b>Stock : </b>$product_stock kgs</h5>
@@ -497,7 +477,6 @@ include("../Functions/functions.php");
                                     <i class='fa fa-truck fa-2x'></i>
                                     <h3 style='padding-left:9px;'>$product_delivery</h3>
                                 </div>
-
                             </div>
                         </div>
                         <div class='col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12 text-white' style='background-color:#292b2c;'>
@@ -518,7 +497,6 @@ include("../Functions/functions.php");
             }
         }
     }
-
     if (isset($_POST['cart'])) {
 
         if (isset($_POST['quantity'])) {
@@ -547,11 +525,7 @@ include("../Functions/functions.php");
         }
     }
     ?>
-
-
-
     <br><br>
-
     <section id="footer" class="myfooter">
         <div class="container">
             <div class="row text-center text-xs-center text-sm-left text-md-left">
@@ -565,19 +539,25 @@ include("../Functions/functions.php");
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a>
+                        </li>
                         <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i
+                                    class="fa fa-envelope"></i></a></li>
                     </ul>
                 </div>
                 </hr>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-                    <p><u><a href="https://www.Farmket.com/">Farmket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
-                    <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com" target="_blank">Farmket</a></p>
+                    <p><u><a href="https://www.Farmket.com/">Farmket Corporation</a></u> is a Multitrading Company for
+                        farmers ang traders</p>
+                    <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com"
+                            target="_blank">Farmket</a></p>
                 </div>
                 </hr>
             </div>

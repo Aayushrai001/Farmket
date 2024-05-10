@@ -1,149 +1,149 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../Styles/buyer_reg.css">
-	<script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
-	<title>Buyer Registration</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/buyer_reg.css">
+    <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
+    <title>Buyer Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../portal_files/bootstrap.min.css">
-	<style>
-	@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-	.myfooter {
-        background-color: #292b2c;
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-        color: goldenrod;
-        margin-top: 15px;
-    }
+        .myfooter {
+            background-color: #292b2c;
 
-    .aligncenter {
-        text-align: center;
-    }
+            color: goldenrod;
+            margin-top: 15px;
+        }
 
-    a {
-        color: goldenrod;
-    }
+        .aligncenter {
+            text-align: center;
+        }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        a {
+            color: goldenrod;
+        }
 
-    nav {
-        background-color: #292b2c;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .navbar-custom {
-        background-color: #292b2c;
-    }
+        nav {
+            background-color: #292b2c;
+        }
 
-    /* change the brand and text color */
-    .navbar-custom .navbar-brand,
-    .navbar-custom .navbar-text {
-        background-color: #292b2c;
-    }
+        .navbar-custom {
+            background-color: #292b2c;
+        }
 
-    .navbar-custom .navbar-nav .nav-link {
-        background-color: #292b2c;
-    }
+        /* change the brand and text color */
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            background-color: #292b2c;
+        }
 
-    .navbar-custom .nav-item.active .nav-link,
-    .navbar-custom .nav-item:hover .nav-link {
-        background-color: #292b2c;
-    }
+        .navbar-custom .navbar-nav .nav-link {
+            background-color: #292b2c;
+        }
 
-
-    .mybtn {
-        border-color: green;
-        border-style: solid;
-    }
+        .navbar-custom .nav-item.active .nav-link,
+        .navbar-custom .nav-item:hover .nav-link {
+            background-color: #292b2c;
+        }
 
 
-    .right {
-        display: flex;
-    }
+        .mybtn {
+            border-color: green;
+            border-style: solid;
+        }
 
-    .left {
-        display: none;
-    }
 
-    .cart {
-        /* margin-left:10px; */
-        margin-right: -9px;
-    }
+        .right {
+            display: flex;
+        }
 
-    .profile {
-        margin-right: 2px;
+        .left {
+            display: none;
+        }
 
-    }
+        .cart {
+            /* margin-left:10px; */
+            margin-right: -9px;
+        }
 
-    .login {
-        margin-right: -2px;
-        margin-top: 12px;
-        display: none;
-    }
+        .profile {
+            margin-right: 2px;
 
-    .searchbox {
-        width: 60%;
-    }
+        }
 
-    .lists {
-        display: inline-block;
-    }
+        .login {
+            margin-right: -2px;
+            margin-top: 12px;
+            display: none;
+        }
 
-    .moblists {
-        display: none;
-    }
+        .searchbox {
+            width: 60%;
+        }
 
-    .logins {
-        text-align: center;
-        margin-right: -30%;
-        margin-left: 35%;
-    }
-    body{
-        margin: 0;
-        font-size: .9rem;
-        font-weight: 400;
-        line-height: 1.6;
-        color: #212529;
-        text-align: left;
-		background-color: #f5f8fa;
-		width:100%;
-    }
+        .lists {
+            display: inline-block;
+        }
 
-    .my-form, .login-form
-    {
-        font-family:  sans-serif;
-    }
+        .moblists {
+            display: none;
+        }
 
-    .my-form
-    {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
+        .logins {
+            text-align: center;
+            margin-right: -30%;
+            margin-left: 35%;
+        }
 
-    .my-form .row
-    {
-        margin-left: 0;
-        margin-right: 0;
-    }
+        body {
+            margin: 0;
+            font-size: .9rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #212529;
+            text-align: left;
+            background-color: #f5f8fa;
+            width: 100%;
+        }
 
-    .login-form
-    {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
+        .my-form,
+        .login-form {
+            font-family: sans-serif;
+        }
 
-    .login-form .row
-    {
-        margin-left: 0;
-        margin-right: 0;
-    }
-	@media only screen and (min-device-width:320px) and (max-device-width:480px) {
-        /* .mycarousel {
+        .my-form {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .my-form .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .login-form {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .login-form .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        @media only screen and (min-device-width:320px) and (max-device-width:480px) {
+            /* .mycarousel {
             display: none;
         }
 
@@ -163,224 +163,193 @@
             margin-top: 20px;
         } */
 
-        .right {
-            display: none;
-            background-color: #ff5500;
-        }
+            .right {
+                display: none;
+                background-color: #ff5500;
+            }
 
-        /* 
+            /* 
             .settings{
             margin-left:79%;
         } */
-        .left {
-            display: flex;
-        }
+            .left {
+                display: flex;
+            }
 
-        .moblogo {
-            display: none;
-        }
+            .moblogo {
+                display: none;
+            }
 
-        .logins {
-            text-align: center;
-            margin-right: 35%;
-            padding: 15px;
-        }
+            .logins {
+                text-align: center;
+                margin-right: 35%;
+                padding: 15px;
+            }
 
-        .searchbox {
-            width: 95%;
-            margin-right: 5%;
-            margin-left: 0%;
-        }
+            .searchbox {
+                width: 95%;
+                margin-right: 5%;
+                margin-left: 0%;
+            }
 
-        .moblists {
-            display: inline-block;
-            text-align: center;
-            width: 100%;
+            .moblists {
+                display: inline-block;
+                text-align: center;
+                width: 100%;
+            }
         }
-    }
     </style>
 </head>
+
 <body>
-<main class="my-form">
-    <!-- Main content area -->
-    <div class="cotainer">
-        <!-- Container to hold the form -->
-        <div class="row justify-content-center">
-            <!-- Center the form horizontally -->
-            <div class="col-md-8">
-                <!-- Bootstrap grid column -->
-                <div class="card">
-                    <!-- Card for styling -->
-                    <div class="card-header" style="background-color:#292b2c">
-                        <!-- Header section of the card -->
-                        <h4 style="font-style:bold;color:goldenrod">Register</h4>
-                        <!-- Register title -->
-                    </div>
-                    <div class="card-body border border-dark">
-                        <!-- Body section of the card -->
-                        <form name="my-form" action="BuyerRegistration.php" method="post">
-                            <!-- Registration form -->
-                            <!-- Form group for full name input -->
-                            <div class="form-group row">
-                                <label for="full_name" class="col-md-4 col-form-label text-md-right"><i class="fas fa-user mr-2"></i><b>Full Name</b></label>
-                                <!-- Label for full name -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="text" id="full_name" class="form-control border border-dark" name="name" placeholder="Enter Your Name" required>
-                                    <!-- Full name input field -->
+    <main class="my-form">
+        <!-- Main content area -->
+        <div class="cotainer">
+            <!-- Container to hold the form -->
+            <div class="row justify-content-center">
+                <!-- Center the form horizontally -->
+                <div class="col-md-8">
+                    <!-- Bootstrap grid column -->
+                    <div class="card">
+                        <!-- Card for styling -->
+                        <div class="card-header" style="background-color:#292b2c">
+                            <!-- Header section of the card -->
+                            <h4 style="font-style:bold;color:goldenrod">Register</h4>
+                            <!-- Register title -->
+                        </div>
+                        <div class="card-body border border-dark">
+                            <!-- Body section of the card -->
+                            <form name="my-form" action="BuyerRegistration.php" method="post">
+                                <!-- Registration form -->
+                                <!-- Form group for full name input -->
+                                <div class="form-group row">
+                                    <label for="full_name" class="col-md-4 col-form-label text-md-right"><i
+                                            class="fas fa-user mr-2"></i><b>Full Name</b></label>
+                                    <!-- Label for full name -->
+                                    <div class="col-md-6">
+                                        <!-- Bootstrap grid column for input -->
+                                        <input type="text" id="full_name" class="form-control border border-dark"
+                                            name="name" placeholder="Enter Your Name" required>
+                                        <!-- Full name input field -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- End of full name form group -->
+                                <!-- End of full name form group -->
 
-                            <!-- Form group for phone number input -->
-                            <div class="form-group row">
-                                <label for="phone_number" class="col-md-4 col-form-label text-md-right "><i class="fas fa-phone-alt mr-2"></i><b>Phone Number</b></label>
-                                <!-- Label for phone number -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="text" id="phone_number" class="form-control w-100 border border-dark" style="width:100% ! important;" name="phonenumber" placeholder="Phone Number" required>
-                                    <!-- Phone number input field -->
+                                <!-- Form group for phone number input -->
+                                <div class="form-group row">
+                                    <label for="phone_number" class="col-md-4 col-form-label text-md-right "><i
+                                            class="fas fa-phone-alt mr-2"></i><b>Phone Number</b></label>
+                                    <!-- Label for phone number -->
+                                    <div class="col-md-6">
+                                        <!-- Bootstrap grid column for input -->
+                                        <input type="text" id="phone_number"
+                                            class="form-control w-100 border border-dark"
+                                            style="width:100% ! important;" name="phonenumber"
+                                            placeholder="Phone Number" required>
+                                        <!-- Phone number input field -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- End of phone number form group -->
+                                <!-- End of phone number form group -->
 
-                            <!-- Form group for email address input -->
-                            <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right"><i class="far fa-envelope mr-2"></i><b>E-Mail Address</b></label>
-                                <!-- Label for email address -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="email" id="email_address" class="form-control border border-dark" name="mail" placeholder="E-Mail ID" required>
-                                    <!-- Email address input field -->
+                                <!-- Form group for email address input -->
+                                <div class="form-group row">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right"><i
+                                            class="far fa-envelope mr-2"></i><b>E-Mail Address</b></label>
+                                    <!-- Label for email address -->
+                                    <div class="col-md-6">
+                                        <!-- Bootstrap grid column for input -->
+                                        <input type="email" id="email_address" class="form-control border border-dark"
+                                            name="mail" placeholder="E-Mail ID" required>
+                                        <!-- Email address input field -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- End of email address form group -->
+                                <!-- End of email address form group -->
 
-                            <!-- Form group for present address input -->
-                            <div class="form-group row">
-                                <label for="present_address" class="col-md-4 col-form-label text-md-right"><i class="fas fa-home mr-2"></i><b>Present Address</b></label>
-                                <!-- Label for present address -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <textarea type="text" id="present_address" class="form-control border border-dark" rows="4" name="address" placeholder="Address" required></textarea>
-                                    <!-- Present address input field -->
+                                <!-- Form group for present address input -->
+                                <div class="form-group row">
+                                    <label for="present_address" class="col-md-4 col-form-label text-md-right"><i
+                                            class="fas fa-home mr-2"></i><b>Present Address</b></label>
+                                    <!-- Label for present address -->
+                                    <div class="col-md-6">
+                                        <!-- Bootstrap grid column for input -->
+                                        <textarea type="text" id="present_address"
+                                            class="form-control border border-dark" rows="4" name="address"
+                                            placeholder="Address" required></textarea>
+                                        <!-- Present address input field -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- End of present address form group -->
+                                <!-- End of present address form group -->
 
-                            <!-- Form group for company name input -->
-                            <div class="form-group row">
-                                <label for="campany_name" class="col-md-4 col-form-label text-md-right"><i class="fas fa-building mr-2"></i><b>Company Name</b></label>
-                                <!-- Label for company name -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="text" id="campany_name" class="form-control border border-dark" name="company_name" placeholder="Company name" required>
-                                    <!-- Company name input field -->
+                                <!-- Form group for username input -->
+                                <div class="form-group row">
+                                    <label for="user_name" class="col-md-4 col-form-label text-md-right"><i
+                                            class="fas fa-user mr-2"></i><b>User Name</b></label>
+                                    <!-- Label for username -->
+                                    <div class="col-md-6">
+                                        <!-- Bootstrap grid column for input -->
+                                        <input type="text" id="user_name" class="form-control border border-dark"
+                                            name="username" placeholder="Username" required>
+                                        <!-- Username input field -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- End of company name form group -->
+                                <!-- End of username form group -->
 
-                            <!-- Form group for license input -->
-                            <div class="form-group row">
-                                <label for="lisence" class="col-md-4 col-form-label text-md-right"><i class="fas fa-id-badge mr-2"></i><b>License</b></label>
-                                <!-- Label for license -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="text" id="lisence" class="form-control border border-dark" name="license" placeholder="License" required>
-                                    <!-- License input field -->
+                                <!-- Form group for password input -->
+                                <div class="form-group row">
+                                    <label for="p1" class="col-md-4 col-form-label text-md-right "><i
+                                            class="fas fa-lock mr-2"></i><b>Password</b></label>
+                                    <!-- Label for password -->
+                                    <div class="col-md-6">
+                                        <!-- Bootstrap grid column for input -->
+                                        <input id="p1" class="form-control border border-dark" type="password"
+                                            name="password" placeholder="Password" required>
+                                        <!-- Password input field -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- End of license form group -->
+                                <!-- End of password form group -->
 
-                            <!-- Form group for bank account number input -->
-                            <div class="form-group row">
-                                <label for="account1" class="col-md-4 col-form-label text-md-right"><i class="fas fa-university mr-2"></i><b>Bank Account No.</b></label>
-                                <!-- Label for bank account number -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="text" id="account1" class="form-control border border-dark" name="account" placeholder="Bank Account number" required>
-                                    <!-- Bank account number input field -->
+                                <!-- Form group for confirm password input -->
+                                <div class="form-group row">
+                                    <label for="p2" class="col-md-4 col-form-label text-md-right"><i
+                                            class="fas fa-lock mr-2"></i><b>Confirm Password</b></label>
+                                    <!-- Label for confirm password -->
+                                    <div class="col-md-6">
+                                        <!-- Bootstrap grid column for input -->
+                                        <input id="p2" class="form-control border border-dark" type="password"
+                                            name="confirmpassword" placeholder="Confirm Password" required>
+                                        <!-- Confirm password input field -->
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- End of bank account number form group -->
+                                <!-- End of confirm password form group -->
 
-                            <!-- Form group for PAN number input -->
-                            <div class="form-group row">
-                                <label for="account2" class="col-md-4 col-form-label text-md-right"><i class="fas fa-pencil-alt mr-2"></i><b>PAN No.</b></label>
-                                <!-- Label for PAN number -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="text" id="account2" class="form-control border border-dark" name="pan" placeholder="PAN number" required>
-                                    <!-- PAN number input field -->
+                                <div class="col-md-6 offset-md-4">
+                                    <!-- Button to submit the form -->
+                                    <button type="submit" class="btn btn-primary"
+                                        style="background-color:#292b2c;color:goldenrod" name="register"
+                                        value="Register">
+                                        Register
+                                    </button>
                                 </div>
-                            </div>
-                            <!-- End of PAN number form group -->
-
-                            <!-- Form group for username input -->
-                            <div class="form-group row">
-                                <label for="user_name" class="col-md-4 col-form-label text-md-right"><i class="fas fa-user mr-2"></i><b>User Name</b></label>
-                                <!-- Label for username -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input type="text" id="user_name" class="form-control border border-dark" name="username" placeholder="Username" required>
-                                    <!-- Username input field -->
-                                </div>
-                            </div>
-                            <!-- End of username form group -->
-
-                            <!-- Form group for password input -->
-                            <div class="form-group row">
-                                <label for="p1" class="col-md-4 col-form-label text-md-right "><i class="fas fa-lock mr-2"></i><b>Password</b></label>
-                                <!-- Label for password -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input id="p1" class="form-control border border-dark" type="password" name="password" placeholder="Password" required>
-                                    <!-- Password input field -->
-                                </div>
-                            </div>
-                            <!-- End of password form group -->
-
-                            <!-- Form group for confirm password input -->
-                            <div class="form-group row">
-                                <label for="p2" class="col-md-4 col-form-label text-md-right"><i class="fas fa-lock mr-2"></i><b>Confirm Password</b></label>
-                                <!-- Label for confirm password -->
-                                <div class="col-md-6">
-                                    <!-- Bootstrap grid column for input -->
-                                    <input id="p2" class="form-control border border-dark" type="password" name="confirmpassword" placeholder="Confirm Password" required>
-                                    <!-- Confirm password input field -->
-                                </div>
-                            </div>
-                            <!-- End of confirm password form group -->
-
-                            <div class="col-md-6 offset-md-4">
-                                <!-- Button to submit the form -->
-                                <button type="submit" class="btn btn-primary" style="background-color:#292b2c;color:goldenrod" name="register" value="Register">
-                                    Register
-                                </button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
 </body>
+
 </html>
 <?php
 // Including the database connection file
-include("../Includes/db.php");
+include ("../Includes/db.php");
 // Checking if the register form is submitted
 if (isset($_POST['register'])) {
     // Escaping special characters from form inputs to prevent SQL injection
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $phonenumber = mysqli_real_escape_string($con, $_POST['phonenumber']);
     $address = mysqli_real_escape_string($con, $_POST['address']);
-    $company_name = mysqli_real_escape_string($con, $_POST['company_name']);
-    $license = mysqli_real_escape_string($con, $_POST['license']);
-    $account = mysqli_real_escape_string($con, $_POST['account']);
-    $pan = mysqli_real_escape_string($con, $_POST['pan']);
     $mail = mysqli_real_escape_string($con, $_POST['mail']);
     $username = mysqli_real_escape_string($con, $_POST['username']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
@@ -388,10 +357,8 @@ if (isset($_POST['register'])) {
     // Checking if the password and confirm password match
     if (strcmp($password, $confirmpassword) == 0) {
         // Creating the SQL query to insert user data into the database
-        $query = "INSERT INTO buyerregistration (buyer_name, buyer_phone, buyer_addr, buyer_comp,
-            buyer_license, buyer_bank, buyer_pan, buyer_mail, buyer_username, buyer_password) 
-            VALUES ('$name', '$phonenumber', '$address', '$company_name', '$license', '$account', 
-            '$pan', '$mail', '$username', '$password')";
+        $query = "INSERT INTO buyerregistration (buyer_name, buyer_phone, buyer_addr, buyer_mail, buyer_username, buyer_password) 
+            VALUES ('$name', '$phonenumber', '$address','$mail', '$username', '$password')";
         // Running the query to insert data
         $run_register_query = mysqli_query($con, $query);
         // Displaying success message and redirecting to the login page

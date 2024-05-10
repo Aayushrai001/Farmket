@@ -302,13 +302,6 @@ if (isset($_POST['login'])) {
     $phonenumber = mysqli_real_escape_string($con, $_POST['phonenumber']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    // Checking if the entered credentials match the predefined admin credentials
-    if ($phonenumber == '9825315733' && $password == 'aayush@147') {
-        // Redirecting to the admin dashboard if admin credentials match
-        echo "<script>window.open('../Admin/admindash.php', '_self')</script>";
-        exit; // Stop further execution
-    }
-
     // Proceeding with regular login validation for other users
     $query = "SELECT * FROM buyerregistration WHERE buyer_phone = '$phonenumber' AND buyer_password = '$password'";
     $run_query = mysqli_query($con, $query);
@@ -328,4 +321,3 @@ if (isset($_POST['login'])) {
     echo "<script>window.open('../BuyerPortal2/bhome.php','_self')</script>";
 }
 ?>
-

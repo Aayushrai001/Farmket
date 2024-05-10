@@ -1,5 +1,5 @@
 <?php
-include("../Functions/functions.php");
+include ("../Functions/functions.php");
 ?>
 
 
@@ -259,23 +259,27 @@ include("../Functions/functions.php");
 
 
 
-<nav class="navbar navbar-expand-xl ">
+    <nav class="navbar navbar-expand-xl ">
 
         <div class=" flex-row-reverse left ">
 
             <div class="p-2">
                 <div class="icon2">
-                    <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
+                    <a href="CartPage.php"> <i class="fa"
+                            style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
                     <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
                 </div>
             </div>
-            <div class="p-2 ml-5"><i class='far fa-user-circle' style='font-size:30px; color: green;margin-top:2px;'></i></div>
+            <div class="p-2 ml-5"><i class='far fa-user-circle'
+                    style='font-size:30px; color: green;margin-top:2px;'></i></div>
             <a class="float-left" href="../BuyerPortal/BuyerHomepage.php">
                 <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
             </a>
         </div>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 "
+                    style="color:green;margin-right:-9%;font-size:28px;"></i></span>
         </button>
         <a class="float-left" href="bhome.php">
             <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
@@ -284,10 +288,12 @@ include("../Functions/functions.php");
 
             <div class="input-group mb-1 ml-2 searchbox">
                 <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i></div>
+                    <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i>
+                    </div>
                 </div>
                 <form action="SearchResult.php" method="get" enctype="multipart/form-data">
-                    <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
+                    <input type="text" class="form-control " id="inlineFormInputGroup" name="search"
+                        placeholder="Search for fruits,vegetables or crops " style="width:500px;">
                 </form>
                 <a href="bhome.php" class="nav-link">Home</a>
                 <a href="product.php" class="nav-link">Product</a>
@@ -297,26 +303,17 @@ include("../Functions/functions.php");
             getUsername();
             ?>
             <div class="list-group moblists">
-
                 <?php
                 if (isset($_SESSION['phonenumber'])) {
                     echo "<a href='BuyerProfile.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
                     echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
-                    echo "<a href='saveforlater.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Save For Later</a>";
-                    echo "<a href='#' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Subscriptions</a>";
-                    echo "<a href='farmer.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Farmers</a>";
                     echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
                 } else {
-                    echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
+                    echo "<a href='../auth/login.html' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
                 }
                 ?>
-
             </div>
         </div>
-
-
-
-
         <div class=" flex-row-reverse right ">
             <div class="p-2 cart">
                 <div class="icon2">
@@ -325,7 +322,8 @@ include("../Functions/functions.php");
                 </div>
             </div>
             <div class="dropdown p-2 settings ">
-                <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Settings
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -333,34 +331,25 @@ include("../Functions/functions.php");
                     if (isset($_SESSION['phonenumber'])) {
                         echo "<a href='BuyerProfile2.php' class='dropdown-item  ' style='padding-right:-20px;'>Profile</a>";
                         echo "<a href='Transaction.php' class='dropdown-item ' style='padding-right:-20px;'>Transactions</a>";
-                        echo "<a href='#' class='dropdown-item'  style='padding-right:-20px;'>Subscriptions</a>";
-                        echo "<a href='saveforlater.php' class='dropdown-item' style='padding-right:-20px;'>Save For Later</a>";
-                        echo "<a href='farmers.php' class='dropdown-item' style='padding-right:-20px;' >Farmers</a>";
                         echo "<a href='../Includes/logout.php' class='dropdown-item ' style='padding-right:-20px;'>Logout</a>";
                     } else {
-                        echo "<a href='../auth/BuyerLogin.php' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
+                        echo "<a href='../auth/login.html' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
                     }
                     ?>
                 </div>
             </div>
-
-
             <div class="text-success  login">Login</div>
         </div>
-
     </nav>
-
     <div class="container">
-
         <?php
         if (isset($_SESSION['phonenumber'])) {
             $temp = totalItems();
-            echo   "<div class='text-left'>
+            echo "<div class='text-left'>
                         <h3>Your Items :- $temp</h3>
                         <hr>";
         }
         ?>
-
         <table class="table">
             <thead>
                 <th>S.No</th>
@@ -392,17 +381,7 @@ include("../Functions/functions.php");
                         $product_price = $pp_price['product_price'];
                         $subtotal = $_SESSION['qtycart'][$i] * $product_price;
 
-            ?>
-
-
-
-                        <!-- <td class="tdy" data-label="quantity"><a style="color:black;margin-right:12px;" href="MinusQty.php?id=<?php echo $product_id; ?>"><label class="add ladd"><i style="padding: 4px;" class=" icon left  fas fa-minus">
-                                    </label></a></i>
-                                <input type="number" oninput="this.value = Math.abs(this.value)" min="1" value='<?php echo $_SESSION['qtycart'][$i]; ?>' name="qty" style="width:40px; "><a style="color:black;margin-left:4px;" href="AddQty.php?id=<?php echo $product_id; ?>"><label class="add radd">
-                                        <i style="padding: 4px;" class="icon right  fas fa-plus"></label></a></i></td>
-                            </td> -->
-
-
+                        ?>
                         <tbody>
                             <tr>
                                 <td data-label="S.No" style="font-size:20px;"><?php echo $i + 1; ?></td>
@@ -414,15 +393,19 @@ include("../Functions/functions.php");
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <a href="AddQty.php?id=<?php echo $product_id; ?>">
-                                                    <button class="btn btn-outline-secondary" style=" background-color:#292b2c;" type="button" id="button-addon1">
+                                                    <button class="btn btn-outline-secondary" style=" background-color:#292b2c;"
+                                                        type="button" id="button-addon1">
                                                         <b style="color:goldenrod"><i class="fas fa-plus"></i></b>
                                                     </button>
                                                 </a>
                                             </div>
-                                            <input type="number" class="form-control" oninput="this.value = Math.abs(this.value)" min="1" value='<?php echo $_SESSION['qtycart'][$i]; ?>' name="qty" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                            <input type="number" class="form-control" oninput="this.value = Math.abs(this.value)"
+                                                min="1" value='<?php echo $_SESSION['qtycart'][$i]; ?>' name="qty" placeholder=""
+                                                aria-label="Example text with button addon" aria-describedby="button-addon1">
                                             <div class="input-group-append">
                                                 <a href="MinusQty.php?id=<?php echo $product_id; ?>">
-                                                    <button class="btn btn-outline-secondary" style=" background-color:#292b2c;" type="button" id="button-addon2">
+                                                    <button class="btn btn-outline-secondary" style=" background-color:#292b2c;"
+                                                        type="button" id="button-addon2">
                                                         <b style="color:goldenrod"><i class="fas fa-minus"></i></b>
                                                     </button>
                                                 </a>
@@ -430,8 +413,6 @@ include("../Functions/functions.php");
                                         </div>
                                     </div>
                                 </td>
-
-
                                 <?php $subtotal = $_SESSION['qtycart'][$i] * $product_price; ?>
                                 <?php
                                 $subquery = "update cart set subtotal = $subtotal where product_id = $product_id";
@@ -440,40 +421,34 @@ include("../Functions/functions.php");
 
                                 <td data-label="Subtotal" style="font-size:20px;"><?php echo $subtotal; ?></td>
                                 <?php $total = $total + $subtotal ?>
-                                <td data-label="Delete" style="font-size:20px;"><a href="DeleteProductCart.php?id=<?php echo $product_id; ?>" id="Deletionlink"><i class="far fa-times-circle"></i></a></td>
+                                <td data-label="Delete" style="font-size:20px;"><a
+                                        href="DeleteProductCart.php?id=<?php echo $product_id; ?>" id="Deletionlink"><i
+                                            class="far fa-times-circle"></i></a></td>
                             </tr>
-                <?php
+                            <?php
                     }
                     $i++;
                 }
             } else {
                 echo "<h1 align = center>Please Login First!</h1><br><br><hr>";
             } ?>
-
-                        </tbody>
+            </tbody>
         </table>
-
     </div>
-
     </div>
-
-
     <div class="container">
         <div class="float-none float-sm-none float-md-none float-lg-left float-xl-left  emptycart">
             <a href="emptyCart.php">
-                <button type="button" class="btn btn-lg  border border-dark " style="font-size:22px;color:black;background-color:#FFD700">Empty Cart
+                <button type="button" class="btn btn-lg  border border-dark "
+                    style="font-size:22px;color:black;background-color:#FFD700">Empty Cart
                     <i class="fas fa-shopping-cart ml-1"></i></button>
             </a>
         </div>
         <!-- <div class="grandtotal  float-none float-sm-none float-md-none float-lg-right float-xl-right"></div><br> -->
         <br>
-        <div class=" float-none float-sm-none float-md-none float-lg-right float-xl-rightcheckout mr-0 p-2 border border-dark  " style="border-radius:5%;">
-
+        <div class=" float-none float-sm-none float-md-none float-lg-right float-xl-rightcheckout mr-0 p-2 border border-dark  "
+            style="border-radius:5%;">
             <h2>Grand total = Rs <?php echo $total; ?> </h2>
-
-
-
-
             <?php
             if (isset($_SESSION['phonenumber'])) {
                 $sel_price = "select * from cart where phonenumber = '$sess_phone_number'";
@@ -486,7 +461,6 @@ include("../Functions/functions.php");
                                 </button>
                             </a>";
                 } else {
-
                     echo "<a href='Includes/alert.php'>
                                 <button type='button' class='btn btn-lg border border-dark d-flex mx-auto' style='font-size:22px;color:black;background-color:#FFD700'>
                                     Checkout<i class='fas fa-arrow-right ml-2 mt-2 mb-1'></i>
@@ -494,40 +468,20 @@ include("../Functions/functions.php");
                             </a>";
                 }
             } else {
-
                 echo "<a href='../auth/BuyerLogin.php'>
                                 <button type='button' class='btn btn-lg border border-dark d-flex mx-auto' style='font-size:22px;color:black;background-color:#FFD700'>
                                     Checkout<i class='fas fa-arrow-right ml-2 mt-2 mb-1'></i>
                                 </button>
                             </a>";
             }
-
             ?>
-
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <?php $_SESSION['grandtotal'] = $total; ?>
         <br>
         <br>
         <div class=" float-none float-sm-none float-md-none float-lg-left float-xl-left continueshopping mt-5">
-            <a href="bhome.php"><button type="button" class="btn btn-lg  border border-dark " style="font-size:22px;color:black;background-color:#FFD700">Continue Shopping
+            <a href="bhome.php"><button type="button" class="btn btn-lg  border border-dark "
+                    style="font-size:22px;color:black;background-color:#FFD700">Continue Shopping
                     <i class="fas fa-shopping-bag ml-1"></i></button></a>
         </div>
     </div>
@@ -549,23 +503,28 @@ include("../Functions/functions.php");
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a>
+                        </li>
                         <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i
+                                    class="fa fa-envelope"></i></a></li>
                     </ul>
                 </div>
                 </hr>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-                    <p><u><a href="https://www.farmket.com/">Farmket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
-                    <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com" target="_blank">Farmket</a></p>
+                    <p><u><a href="https://www.farmket.com/">Farmket Corporation</a></u> is a Multitrading Company for
+                        farmers ang traders</p>
+                    <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com"
+                            target="_blank">Farmket</a></p>
                 </div>
                 </hr>
             </div>
         </div>
 </body>
-
 </html>

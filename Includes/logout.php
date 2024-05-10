@@ -1,7 +1,9 @@
 <?php
-
 session_start();
-
 session_destroy();
+echo "<script>
+    window.open('../BuyerPortal2/bhome.php', '_self');
+</script>";
+?>
 
-echo "<script>window.open('../BuyerPortal2/bhome.php','_self')</script>";
+

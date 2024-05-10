@@ -1,11 +1,12 @@
 <?php
-include("../Functions/functions.php");
+include ("../Functions/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Category</title>
+
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,48 +18,6 @@ include("../Functions/functions.php");
      <a href="https://icons8.com/icon/83325/roman-soldier"></a>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
-     <script>
-        function state() {
-            var a = document.getElementById('states').value;
-            if (a === 'Province-1') {
-                array = ['Bhojpur', 'Dhankuta', 'Ilam', 'Jhapa', 'Khotang', 'Morang', 'Okhaldhunga', 'Panchthar', 'Sankhuwasabha', 'Solukhumbu', 'Sunsari', 'Taplejung', 'Terhathum', 'Udayapur'];
-            } else if (a === 'Province-2') {
-                array = ['Bara', 'Dhanusha', 'Mahottari', 'Parsa', 'Rautahat', 'Sarlahi', 'Saptari', 'Siraha'];
-            } else if (a === 'Province-3') {
-                array = ['Bhaktapur', 'Chitwan', 'Dhading', 'Dolakha', 'Kathmandu', 'Kavrepalanchok', 'Lalitpur', 'Makwanpur', 'Nuwakot', 'Ramechhap', 'Rasuwa', 'Sindhuli', 'Sindhupalchok'];
-            } else if (a === 'Province-4') {
-                array = ['Baglung', 'Gorkha', 'Kaski', 'Lamjung', 'Manang', 'Mustang', 'Myagdi', 'Nawalpur', 'Parbat', 'Syangja', 'Tanahun'];
-            } else if (a === 'Province-5') {
-                array = ['Arghakhanchi', 'Baglung', 'Bardiya', 'Gulmi', 'Kapilvastu', 'Nawalparasi East', 'Palpa', 'Parasi', 'Pyuthan', 'Rolpa', 'Rukum West'];
-            } else if (a === 'Province-6') {
-                array = ['Dailekh', 'Dolpa', 'Humla', 'Jajarkot', 'Jumla', 'Kalikot', 'Mugu', 'Salyan', 'Surkhet', 'Western Rukum'];
-            } else if (a === 'Province-7') {
-                array = ['Achham', 'Baitadi', 'Bajhang', 'Bajura', 'Dadeldhura', 'Darchula', 'Doti', 'Kailali', 'Kanchanpur'];
-            }
-            var string = "";
-            for (let i = 0; i < array.length; i++) {
-                string = string + "<option>" + array[i] + "</option>";
-            }
-            string = "<select nmae = 'lol'>" + string + "</select>"
-            document.getElementById('district').innerHTML = string;
-        }
-    </script>
-     <script>
-          var a;
-          function display() {
-               if (a == 0) {
-                    document.getElementById("majic").style.visibility = "hidden";
-                    document.getElementById("show").style.visibility = "visible";
-                    return a = 1;
-               } else {
-                    document.getElementById("majic").style.visibility = "visible";
-                    document.getElementById("show").style.visibility = "hidden";
-                    // document.getElementById("show").style. visibility= "hidden";
-
-                    return a = 0;
-               }
-          }
-     </script>
      <style>
           .myfooter {
                background-color: #292b2c;
@@ -211,9 +170,6 @@ include("../Functions/functions.php");
                padding: 0 10px;
           }
 
-          /* .settings{
-    margin-left:10px;
-} */
           @media only screen and (min-device-width:320px) and (max-device-width:480px) {
                .guard {
                     width: 100%;
@@ -313,12 +269,7 @@ include("../Functions/functions.php");
                }
           }
 
-
-
-
           /* Image Grig */
-
-
           * {
                box-sizing: border-box;
           }
@@ -372,11 +323,6 @@ include("../Functions/functions.php");
                color: goldenrod;
           }
 
-
-
-
-
-
           #headings {
                /* text-shadow: 2px 1px #666666; */
                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -398,126 +344,125 @@ include("../Functions/functions.php");
                }
           }
 
-          /* Responsive layout - makes a two column-layout instead of four columns */
-          /* @media screen and (max-width: 800px) {
-            .column {
-                -ms-flex: 50%;
-                flex: 50%;
-                max-width: 50%;
-            }
-        } */
+          Responsive layout - makes a two column-layout instead of four columns */ @media screen and (max-width: 800px) {
+               .column {
+                    -ms-flex: 50%;
+                    flex: 50%;
+                    max-width: 50%;
+               }
+          }
 
-          /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-          /* @media screen and (max-width: 600px) {
-            .column {
-                -ms-flex: 100%;
-                flex: 100%;
-                max-width: 100%;
-            }
-        } */
+          Responsive layout - makes the two columns stack on top of each other instead of next to each other */ @media screen and (max-width: 600px) {
+               .column {
+                    -ms-flex: 100%;
+                    flex: 100%;
+                    max-width: 100%;
+               }
+          }
      </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-xl ">
-<div class=" flex-row-reverse left ">
-    <div class="p-2">
-        <div class="icon2">
-            <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
-            <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
-        </div>
-    </div>
-    <div class="p-2 ml-5"><i class='far fa-user-circle' style='font-size:30px; color: green;margin-top:2px;'></i></div>
-    <a class="float-left" href="bhome.php">
-        <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
-    </a>
-</div>
-<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 " style="color:green;margin-right:-9%;font-size:28px;"></i></span>
-</button>
-<a class="float-left" href="bhome.php">
-    <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
-</a>
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="input-group mb-1 ml-2 searchbox">
-        <div class="input-group-prepend">
-            <div class="input-group-text"><i class="fas fa-search" style="font-size:20px;color:green; "></i></div>
-        </div>
-        <form action="SearchResult.php" method="get" enctype="multipart/form-data">
-            <input type="text" class="form-control " id="inlineFormInputGroup" name="search" placeholder="Search for fruits,vegetables or crops " style="width:500px;">
-        </form>
-        <a href="bhome.php" class="nav-link">Home</a>
+     <nav class="navbar navbar-expand-xl ">
+          <div class=" flex-row-reverse left ">
+               <div class="p-2">
+                    <div class="icon2">
+                         <a href="CartPage.php"> <i class="fa"
+                                   style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
+                         <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
+                    </div>
+               </div>
+               <div class="p-2 ml-5"><i class='far fa-user-circle'
+                         style='font-size:30px; color: green;margin-top:2px;'></i></div>
+               <a class="float-left" href="bhome.php">
+                    <img src="farmket.png" class="float-left mr-5 ml-0 " alt="Logo" style="height:50px;">
+               </a>
+          </div>
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"><i class="fas fa-bars p-1 "
+                         style="color:green;margin-right:-9%;font-size:28px;"></i></span>
+          </button>
+          <a class="float-left" href="bhome.php">
+               <img src="farmket.png" class="float-left mr-2 moblogo" alt="Logo" style="height:50px;">
+          </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <div class="input-group mb-1 ml-2 searchbox">
+                    <div class="input-group-prepend">
+                         <div class="input-group-text"><i class="fas fa-search"
+                                   style="font-size:20px;color:green; "></i></div>
+                    </div>
+                    <form action="SearchResult.php" method="get" enctype="multipart/form-data">
+                         <input type="text" class="form-control " id="inlineFormInputGroup" name="search"
+                              placeholder="Search for fruits,vegetables or crops " style="width:500px;">
+                    </form>
+                    <a href="bhome.php" class="nav-link">Home</a>
                     <a href="product.php" class="nav-link">Product</a>
                     <a href="aboutus.php" class="nav-link">About Us</a>
-    </div>
-    <?php
-    getUsername();
-    ?>
-    <div class="list-group moblists">
-        <?php
-        if (isset($_SESSION['phonenumber'])) {
-            echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
-            echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
-            echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller </a>";
-            echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
-        } else {
-            echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
-        }
-        ?>
-    </div>
-</div>
-<div class=" flex-row-reverse right ">
-    <div class="p-2 cart">
-        <div class="icon2">
-            <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green">&#61562;</i></a>
-            <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
-        </div>
-    </div>
-    <div class="dropdown p-2 settings ">
-        <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Settings
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <?php
-            if (isset($_SESSION['phonenumber'])) {
-               echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
-            echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
-            echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
-            echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
-        } else {
-            echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
-        }
-            ?>
-        </div>
-    </div>
-    <div class="text-success  login">Login</div>
-</div>
-</nav>
-<div class="container">
-    <div class="d-flex justify-content-around bg-white mb-3">
-    <div class="p-2">
-    <div class="dropdown">
-        <?php
-        getFruits();
-        ?>
-    </div>
-</div>
-        <div class="p-2">
-    <div class="dropdown">
-        <?php
-        getVegetables();
-        ?>
-    </div>
-</div>
-                <div class="p-2">
-    <div class="dropdown">
-        <?php
-        getCrops();
-        ?>
-    </div>
-</div>
+               </div>
+               <?php
+               getUsername();
+               ?>
+               <div class="list-group moblists">
+                    <?php
+                    if (isset($_SESSION['phonenumber'])) {
+                         echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
+                         echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
+                         echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
+                    } else {
+                         echo "<a href='../auth/login.html' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
+                    }
+                    ?>
+               </div>
+          </div>
+          <div class=" flex-row-reverse right ">
+               <div class="p-2 cart">
+                    <div class="icon2">
+                         <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green">&#61562;</i></a>
+                         <span id="icon" style="color:green"> <?php echo totalItems(); ?> </span>
+                    </div>
+               </div>
+               <div class="dropdown p-2 settings ">
+                    <button class="btn  dropdown-toggle text-success" type="button" id="dropdownMenuButton"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Settings
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                         <?php
+                         if (isset($_SESSION['phonenumber'])) {
+                              echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
+                              echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
+                              echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
+                         } else {
+                              echo "<a href='../auth/login.html' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
+                         }
+                         ?>
+                    </div>
+               </div>
+               <div class="text-success  login">Login</div>
+          </div>
+     </nav>
+     <div class="container">
+          <div class="heading">
+               <h2 class="text-center">Category</h2>
+          </div>
+          <div class="d-flex justify-content-around bg-white mb-3">
+               <?php
+               $select_category = "SELECT * FROM `categories`";
+               $result_category = mysqli_query($con, $select_category);
+               while ($row_category = mysqli_fetch_assoc($result_category)) {
+                    $category_title = $row_category['cat_title'];
+                    $category_id = $row_category['cat_id'];
+                    echo "<div class='p-2'>";
+                    echo "<div class='dropdown'>";
+                    echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$category_id'>$category_title</a></button>";
+                    echo "</div>";
+                    echo "</div>";
+               }
+               ?>
+          </div>
+     </div>
 
-    </div>
-</div>
 
      <form action="" method="post">
           <div class="container">
@@ -543,72 +488,72 @@ include("../Functions/functions.php");
           }
      }
      ?>
-    <div class="container">
-        <br>
-        <div class="row">
-        <?php
-// Include database connection and other necessary files
-include("../Includes/db.php");
-// Check if the add to cart form is submitted
-if (isset($_POST['add_to_cart'])) {
-    // Get product details from the form
-    $product_id = $_POST['product_id'];
-    $product_price = $_POST['product_price'];
-    $quantity = $_POST['quantity'];
-    $subtotal = $product_price * $quantity;
-    if (isset($_POST['quantity'])) {
-     $qty = $_POST['quantity'];
-} else {
-     $qty = 1;
-}
-global $con;
-if (isset($_SESSION['phonenumber'])) {
-     $sess_phone_number = $_SESSION['phonenumber'];
+     <div class="container">
+          <br>
+          <div class="row">
+               <?php
+               // Include database connection and other necessary files
+               include ("../Includes/db.php");
+               // Check if the add to cart form is submitted
+               if (isset($_POST['add_to_cart'])) {
+                    // Get product details from the form
+                    $product_id = $_POST['product_id'];
+                    $product_price = $_POST['product_price'];
+                    $quantity = $_POST['quantity'];
+                    $subtotal = $product_price * $quantity;
+                    if (isset($_POST['quantity'])) {
+                         $qty = $_POST['quantity'];
+                    } else {
+                         $qty = 1;
+                    }
+                    global $con;
+                    if (isset($_SESSION['phonenumber'])) {
+                         $sess_phone_number = $_SESSION['phonenumber'];
 
-     $check_pro = "select * from cart where phonenumber = $sess_phone_number and product_id='$product_id' ";
+                         $check_pro = "select * from cart where phonenumber = $sess_phone_number and product_id='$product_id' ";
 
-     $run_check = mysqli_query($con, $check_pro);
+                         $run_check = mysqli_query($con, $check_pro);
 
-     if (mysqli_num_rows($run_check) > 0) {
-          echo "";
-     } else {
-          $subtotal = $product_price * $qty;
-          $insert_pro = "insert into cart (product_id,phonenumber,qty,subtotal) values ('$product_id','$sess_phone_number','$qty','$subtotal')";
-          $run_insert_pro = mysqli_query($con, $insert_pro);
-          echo "<script>window.location.reload(true)</script>";
-     }
-} else {
-     echo "<script>window.alert('Please Login First!');</script>";
-}
-}
-?>
-            <?php
-            if (isset($_GET['product_cat'])) {
-                $product_cat = $_GET['product_cat'];
-                global $con;
-                $get_pro = "SELECT * FROM products WHERE product_cat = '$product_cat' ORDER BY RAND() LIMIT 0,9";
-                $run_pro = mysqli_query($con, $get_pro);
-                if ($run_pro) {
-                    echo "<br>";
-                    while ($rows = mysqli_fetch_array($run_pro)) {
-                        $product_id = $rows['product_id'];
-                        $product_title = $rows['product_title'];
-                        $product_image = $rows['product_image'];
-                        $product_price = $rows['product_price'];
-                        $product_delivery = $rows['product_delivery'];
-                        $farmer_fk = $rows['farmer_fk'];
-                        $farmer_name_query = "SELECT farmer_name FROM farmerregistration WHERE farmer_id = $farmer_fk";
-                        $running_query_name = mysqli_query($con, $farmer_name_query);
-                        while ($names = mysqli_fetch_array($running_query_name)) {
-                            $name = $names['farmer_name'];
-                        }
+                         if (mysqli_num_rows($run_check) > 0) {
+                              echo "";
+                         } else {
+                              $subtotal = $product_price * $qty;
+                              $insert_pro = "insert into cart (product_id,phonenumber,qty,subtotal) values ('$product_id','$sess_phone_number','$qty','$subtotal')";
+                              $run_insert_pro = mysqli_query($con, $insert_pro);
+                              echo "<script>window.location.reload(true)</script>";
+                         }
+                    } else {
+                         echo "<script>window.alert('Please Login First!');</script>";
+                    }
+               }
+               ?>
+               <?php
+               if (isset($_GET['product_cat'])) {
+                    $product_cat = $_GET['product_cat'];
+                    global $con;
+                    $get_pro = "SELECT * FROM products WHERE product_cat = '$product_cat' AND state='approved' ORDER BY RAND() LIMIT 0,9";
+                    $run_pro = mysqli_query($con, $get_pro);
+                    if ($run_pro) {
+                         echo "<br>";
+                         while ($rows = mysqli_fetch_array($run_pro)) {
+                              $product_id = $rows['product_id'];
+                              $product_title = $rows['product_title'];
+                              $product_image = $rows['product_image'];
+                              $product_price = $rows['product_price'];
+                              $product_delivery = $rows['product_delivery'];
+                              $farmer_fk = $rows['farmer_fk'];
+                              $farmer_name_query = "SELECT farmer_name FROM farmerregistration WHERE farmer_id = $farmer_fk";
+                              $running_query_name = mysqli_query($con, $farmer_name_query);
+                              while ($names = mysqli_fetch_array($running_query_name)) {
+                                   $name = $names['farmer_name'];
+                              }
 
-                        if ($product_delivery == "yes") {
-                            $product_delivery = "Delivery by Farmer";
-                        } else {
-                            $product_delivery = "Delivery by Farmer Not Available";
-                        }
-                        echo "<div class='col col-12 col-sm-12 col-md-4 col-xl-4 col-lg-4'>
+                              if ($product_delivery == "yes") {
+                                   $product_delivery = "Delivery by Farmer";
+                              } else {
+                                   $product_delivery = "Delivery by Farmer Not Available";
+                              }
+                              echo "<div class='col col-12 col-sm-12 col-md-4 col-xl-4 col-lg-4'>
                         <div class='card pb-1 pl-1 pr-1 pt-0' style='height:542px'>
                         <br>
                         <div class='mt-0'><b>
@@ -651,14 +596,14 @@ if (isset($_SESSION['phonenumber'])) {
                         </div>
                         </div>
                         ";
+                         }
                     }
-                }
-            }
-            ?>
-        </div>
-        <br><br>
-    </div>
-    <!-- footer -->
+               }
+               ?>
+          </div>
+          <br><br>
+     </div>
+     <!-- footer -->
      <section id="footer" class="myfooter">
           <div class="container">
                <div class="row text-center text-xs-center text-sm-left text-md-left">
@@ -672,19 +617,26 @@ if (isset($_SESSION['phonenumber'])) {
                <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                          <ul class="list-unstyled list-inline social text-center">
-                              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                              <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                              <li class="list-inline-item"><a href="javascript:void();"><i
+                                             class="fa fa-facebook"></i></a></li>
+                              <li class="list-inline-item"><a href="javascript:void();"><i
+                                             class="fa fa-twitter"></i></a></li>
+                              <li class="list-inline-item"><a href="javascript:void();"><i
+                                             class="fa fa-instagram"></i></a></li>
+                              <li class="list-inline-item"><a href="javascript:void();"><i
+                                             class="fa fa-google-plus"></i></a></li>
+                              <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i
+                                             class="fa fa-envelope"></i></a></li>
                          </ul>
                     </div>
                     </hr>
                </div>
                <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-                         <p><u><a href="https://www.farmket.com/">Framket Corporation</a></u> is a Multitrading Company for farmers ang traders</p>
-                         <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com" target="_blank">Farmket</a></p>
+                         <p><u><a href="https://www.farmket.com/">Framket Corporation</a></u> is a Multitrading Company
+                              for farmers ang traders</p>
+                         <p class="h6">Copy All right Reversed.<a class="text-green ml-2" href="https://www.Farmket.com"
+                                   target="_blank">Farmket</a></p>
                     </div>
                     </hr>
                </div>

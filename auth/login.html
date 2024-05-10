@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Selection User</title>
+    <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
+    <style>
+        .form-group {
+            font-size: 30px;
+        }
+
+        .form-check {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="my-form">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="card ">
+                        <div class="card-header text-left" style="background-color:#292b2c">
+                            <h4 style="font-style:bold;color:goldenrod;text-align:left">Select User For Login</h4>
+                        </div>
+                        <div class="card-body border border-dark">
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label>User Type:</label><br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="user_type" id="buyer"
+                                            value="Buyer" checked>
+                                        <label class="form-check-label" for="buyer">Buyer</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="user_type" id="seller"
+                                            value="Seller">
+                                        <label class="form-check-label" for="seller">Seller</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary text-left border border-dark"
+                                        style="background-color:#292b2c;color:goldenrod" name="login" value="Login">
+                                        Confirm
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission
+            // Get the selected user type
+            var userType = document.querySelector('input[name="user_type"]:checked').value;
+            // Redirect based on user type
+            if (userType === 'Buyer') {
+                window.location.href = 'BuyerLogin.php'; // Redirect to buyerLogin.php
+            } else if (userType === 'Seller') {
+                window.location.href = 'FarmerLogin.php'; // Redirect to FarmerLogin.php
+            }
+        });
+    </script>
+</body>
+
+</html>

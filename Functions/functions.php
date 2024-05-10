@@ -22,7 +22,7 @@ function getUsername()
             echo @"<div class='text-success  logins mx-1 ml-5  '>$buyer_name</div>";
         }
     } else {
-        echo "<a href = '../auth/BuyerLogin.php'><div class='text-success logins mx-5'>Login</div></a>";
+        echo "<a href = '../auth/login.html'><div class='text-success logins mx-5'>Login</div></a>";
         // echo "<label><a href = '../auth/BuyerLogin.php' style = 'color:white' >Login/Sign up</a></label>";
     }
 }
@@ -57,30 +57,10 @@ function CheckoutIdentify()
     }
 }
 
-
-function getCrops()
-{
-    $product_cat = 1; // Set the product category value for Crops
-    echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Crops</a></button>";
-}
-
-function getFruits(){
-    $product_cat = 3; // Set the product category value for Crops
-        echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Fruits</a></button>";
-}
-
-
-function getVegetables()
-{
-    $product_cat = 2; // Set the product category value for Crops
-    echo "<button class='btn btn-green mybtn' type='button'><a href='../BuyerPortal2/Categories.php?product_cat=$product_cat'>Vegetables</a></button>";
-}
-
-
 function getProduct()
 {
 global $con;
-$query = "select * from products  order by RAND() LIMIT 0,12";
+$query = "select * from products where state='approved' order by RAND() LIMIT 0,12";
 $run_query = mysqli_query($con, $query);
 echo "<br>";
 while ($rows = mysqli_fetch_array($run_query)) {
@@ -149,7 +129,7 @@ while ($rows = mysqli_fetch_array($run_query)) {
 function getProducts()
 {
 global $con;
-$query = "select * from products  order by RAND() LIMIT 0,12";
+$query = "select * from products  where state='approved' order by RAND() LIMIT 0,12";
 $run_query = mysqli_query($con, $query);
 echo "<br>";
 while ($rows = mysqli_fetch_array($run_query)) {
@@ -215,96 +195,6 @@ while ($rows = mysqli_fetch_array($run_query)) {
 }
 }  
 
-
-
-function getVegetablesHomepage()
-{
-    global $con;
-    $query = "select * from products where product_cat = 2 and not (product_image = '') order by RAND() LIMIT 0,4";
-    $run_query = mysqli_query($con, $query);
-    while ($rows = mysqli_fetch_array($run_query)) {
-        $product_id = $rows['product_id'];
-        $product_title = $rows['product_title'];
-        $product_image = $rows['product_image'];
-        $product_price = $rows['product_price'];
-        $product_delivery = $rows['product_delivery'];
-        $product_cat = $rows['product_cat'];
-        $product_type = $rows['product_type'];
-
-        // echo "  <div class='veg'>
-        //             <a href='../BuyerPortal/BuyerProductDetails.php?id=$product_id'><img src='../Admin/product_images/$product_image' height='250px' width='300px' ></a>
-        //         </div>";
-
-        echo "<div class='column kolum'>
-            <div class='img-thumbnail ''>
-                 <a href='../BuyerPortal2/Categories.php?type=$product_type'>
-                    <img class='rounded mx-auto d-block images' src='../Admin/product_images//$product_image' width='350px' height='200px' alt='image'>
-                 </a>
-            </div>
-        </div>";
-    }
-}
-
-function getFruitsHomepage()
-{
-    global $con;
-    $query = "select * from products where product_cat = 3 and not (product_image = '') order by RAND() LIMIT 0,4";
-    $run_query = mysqli_query($con, $query);
-    while ($rows = mysqli_fetch_array($run_query)) {
-        $product_id = $rows['product_id'];
-        $product_title = $rows['product_title'];
-        $product_image = $rows['product_image'];
-        $product_price = $rows['product_price'];
-        $product_delivery = $rows['product_delivery'];
-        $product_cat = $rows['product_cat'];
-        $product_type = $rows['product_type'];
-        echo "<div class='column kolum'>
-            <div class='img-thumbnail ''>
-                 <a href='../BuyerPortal2/Categories.php?type=$product_type'>
-                    <img class='rounded mx-auto d-block images' src='../Admin/product_images//$product_image' width='350px' height='200px' alt='image'>
-                 </a>
-            </div>
-        </div>";
-    }
-}
-//function  which is link with FarmerProductDetails
-// function getFarmerProductDetails()
-// {
-//     include("../Includes/db.php");
-//     global $con;
-//     if (isset($_GET['id'])) {
-//         $prod_id = $_GET['id'];
-//         $query = "select * from products where product_id=" . $prod_id;
-//         $run_query = mysqli_query($con, $query);
-//         $resultCheck = mysqli_num_rows($run_query);
-//         if ($resultCheck > 0) {
-//             while ($rows = mysqli_fetch_array($run_query)) {
-//                 $product_title = $rows['product_title'];
-//                 $product_image = $rows['product_image'];
-//                 $product_type = $rows['product_type'];
-//                 $product_stock = $rows['product_stock'];
-//                 $product_description = $rows['product_desc'];
-//                 $product_price = $rows['product_price'];
-//                 $product_delivery = $rows['product_delivery'];
-//                 $product_cat = $rows['product_cat'];
-//                 echo "<div>
-//                 <img src='../Admin/product_images/$product_image' height='250px' width='300px' ><br>"
-//                     . " product title  :  " . $product_title . "<br>"
-//                     . " product type  :  " . $product_type . "<br>"
-//                     . " product stock  :  " . $product_stock . "<br>"
-//                     . " product Description  :  " . $product_description . "<br>"
-//                     . " product price  :  " . $product_price . "<br>"
-//                     . " product Delivery  :  " . $product_delivery . "<br>"
-//                     . " product category  :  " . $product_cat . "<br>"
-//                     . "</div>";
-//             }
-//         }
-//     } else {
-//         echo "<br><br><hr><h1 align = center>Product Not Uploaded !</h1><br><br><hr>";
-//     }
-// }
-
-// Checkout System Functions
 function cart()
 {
     if (isset($_SESSION['phonenumber'])) {

@@ -1,24 +1,18 @@
 <?php
 include("../Functions/functions.php");
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <a href="https://icons8.com/icon/83325/roman-soldier"></a>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <script src="https://kit.fontawesome.com/c587fc1763.js" crossorigin="anonymous"></script>
 </head>
 <style>
@@ -279,17 +273,9 @@ include("../Functions/functions.php");
         }
     }
 </style>
-
 <body>
-
-
-
-
-
 <nav class="navbar navbar-expand-xl ">
-
 <div class=" flex-row-reverse left ">
-
     <div class="p-2">
         <div class="icon2">
             <a href="CartPage.php"> <i class="fa" style="font-size:30px; color:green ;margin-top:2px;">&#61562;</i></a>
@@ -324,24 +310,17 @@ include("../Functions/functions.php");
     getUsername();
     ?>
     <div class="list-group moblists">
-
         <?php
         if (isset($_SESSION['phonenumber'])) {
             echo "<a href='BuyerProfileDetails.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Profile</a>";
             echo "<a href= 'Transaction.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Transactions</a>";
-            echo "<a href='../auth/FarmerLogin.php' class='list-group-item list-group-item-action' style='background-color:#292b2c;text-align:center;color:goldenrod'>Become Seller</a>";
             echo "<a href='../Includes/logout.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Logout</a>";
         } else {
-            echo "<a href='../auth/BuyerLogin.php' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
+            echo "<a href='../auth/login.html' class='list-group-item list-group-item-action ' style='background-color:#292b2c;text-align:center;color:goldenrod'>Login</a>";
         }
         ?>
-
     </div>
 </div>
-
-
-
-
 <div class=" flex-row-reverse right ">
     <div class="p-2 cart">
         <div class="icon2">
@@ -358,21 +337,16 @@ include("../Functions/functions.php");
             if (isset($_SESSION['phonenumber'])) {
                 echo "<a href='BuyerProfileDetails.php' class='dropdown-item  ' style='padding-right:-20px;'>Profile</a>";
                 echo "<a href='Transaction.php' class='dropdown-item ' style='padding-right:-20px;'>Transactions</a>";
-                echo "<a href='../auth/FarmketLogin.php' class='dropdown-item'  style='padding-right:-20px;'>Become Seller</a>";
                 echo "<a href='../Includes/logout.php' class='dropdown-item ' style='padding-right:-20px;'>Logout</a>";
             } else {
-                echo "<a href='../auth/BuyerLogin.php' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
+                echo "<a href='../auth/login.html' class='dropdown-item ' style='padding-right:-20px;'>Login</a>";
             }
             ?>
         </div>
     </div>
-
-
     <div class="text-success  login">Login</div>
 </div>
-
 </nav>
-
     <form action="checkout.php" method="post">
         <?php
         $phonenumber = $_SESSION['phonenumber'];
@@ -382,7 +356,6 @@ include("../Functions/functions.php");
             $buyer_addr = $row['buyer_addr'];
         }
         ?>
-
         <div class="container mt-2">
             <div class="text">
                 <br>
@@ -411,13 +384,8 @@ include("../Functions/functions.php");
                     <th>Name</th>
                     <th>Total (in Rs)</th>
                     <th>Delivery options</th>
-                    <!-- <th>Status</th> -->
                 </thead>
-
-
-
                 <?php
-
                 global $con;
                 if (isset($_SESSION['phonenumber'])) {
                     $sess_phone_number = $_SESSION['phonenumber'];
@@ -551,17 +519,22 @@ if (isset($_POST['submit'])) {
     $payment = $_POST['payment'];
     $total = $_SESSION['grandtotal'];
 
+    // Get the current date
+    $order_date = date('Y-m-d');
+
     $count = 0;
     while ($count < $i) {
         $product_id = $allproducts[$count];
         $qty = $allqty[$count];
-        $total = $allsubtotal[$count];
+        $subtotal = $allsubtotal[$count];
         $phone = $allphones[$count];
-        $query1 = "insert into orders (product_id,qty,address,delivery,phonenumber,total,payment,buyer_phonenumber) values ('$product_id','$qty','$address','$delivery','$phone','$total','$payment','$sess_phone_number')";
+
+        // Insert the current date using the $order_date variable
+        $query1 = "INSERT INTO orders (product_id, qty, address, delivery, phonenumber, total, payment, buyer_phonenumber, order_date) VALUES ('$product_id', '$qty', '$address', '$delivery', '$phone', '$total', '$payment', '$sess_phone_number', '$order_date')";
         $run = mysqli_query($con, $query1);
         $count = $count + 1;
     }
-    $clear = "delete from cart where phonenumber = $sess_phone_number";
+    $clear = "DELETE FROM cart WHERE phonenumber = $sess_phone_number";
     $run = mysqli_query($con, $clear);
     if ($run) {
         echo "<script>window.open('Success.php','_self')</script>";
